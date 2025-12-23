@@ -13,7 +13,6 @@ title                    : "David Mailland"
 title_separator          : "-"
 name                     : &name "David Mailland"
 description              : &description "Petri nets for Humans"
-url                      : https://davidmailland.github.io
 baseurl                  : ""
 repository               : "davidmailland/davidmailland.github.io"
 
@@ -41,7 +40,7 @@ author:
   semantic         : # URL
   ssrn             : # URL
   pubmed           : # URL
-  researchgate     : "https://www.researchgate.net/profile/David-Mailland?ev=hdr_xprf"
+  researchgate     : # URL
   scopus           : # URL
   zotero           : # URL
 
