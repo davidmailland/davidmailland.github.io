@@ -25,19 +25,19 @@ author:
   avatar           : "profile.png"
   name             : "David Mailland"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "Indpendent Researcher"
   location         : "French"
-  employer         : "ISAE (ENSICA)"
+  education        : "ISAE (ENSICA)"
   uri              : # URL
   email            : "david.mailland@protonmail.com" 
 
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=fOZYuXQAAAAJ"
+  googlescholar    : "fOZYuXQAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : "https://orcid.org/0009-0002-8480-1325"
+  orcid            : "0009-0002-8480-1325"
   semantic         : # URL
   ssrn             : # URL
   pubmed           : # URL
