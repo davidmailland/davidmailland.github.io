@@ -12,7 +12,7 @@ site_theme               : "default"   # "default", "air", "sunrise", "mint", "d
 title                    : "David Mailland"
 title_separator          : "-"
 name                     : &name "David Mailland"
-description              : &description "Petri nets, Markov chains, and Safety & Dependability modelling"
+description              : &description "Petri nets for Humans"
 url                      : https://davidmailland.github.io
 baseurl                  : ""
 repository               : "davidmailland/davidmailland.github.io"
