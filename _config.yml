@@ -84,10 +84,10 @@ author:
 publication_category:
   publications:
     title: 'Publications'
-  early_work:
-    title: 'Early work (in French)'
   conferences_fr:
     title: "Conference papers (in French)"
+  early_work:
+    title: 'Early work (in French)'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
