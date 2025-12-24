@@ -1,61 +1,31 @@
 ---
-layout: archive
+layout: single
 title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<div class="wordwrap">
+  You can also find my articles on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.
+</div>
 
-{% include base_path %}
+<h2>Selected publications</h2>
+<ul>
+  <li>
+    <strong>From Mathematics to Art: Modelling the Pascal’s Triangle with Petri Nets</strong><br>
+    <em>Symmetry</em>, 2025.
+  </li>
+</ul>
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single-nolink.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single-nolink.html %}
-  {% endfor %}
-{% endif %}
+<h2>Early work</h2>
+<ul>
+  <li>
+    <strong>[Conference paper title]</strong><br>
+    <em>[Conference name]</em>, [Year].
+  </li>
+  <li>
+    <strong>[Conference paper title]</strong><br>
+    <em>[Conference name]</em>, [Year].
+  </li>
+</ul>
 
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".archive__item a").forEach(a => {
-      a.removeAttribute("href");
-      a.style.pointerEvents = "none";
-      a.style.cursor = "default";
-      a.style.textDecoration = "none";
-      a.style.color = "inherit";
-    });
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.body.setAttribute("data-js-test", "ok");
-    console.log("PUBLICATIONS JS OK");
-
-    document.querySelectorAll(".archive__item a").forEach(a => {
-      a.removeAttribute("href");
-      a.style.pointerEvents = "none";
-      a.style.cursor = "default";
-      a.style.textDecoration = "none";
-      a.style.color = "inherit";
-    });
-  });
-</script>
