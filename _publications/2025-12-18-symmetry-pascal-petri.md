@@ -1,4 +1,3 @@
-al---
 title: "From Mathematics to Art: Modelling the Pascal’s Triangle with Petri Nets"
 collection: publications
 category: publications
