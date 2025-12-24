@@ -33,4 +33,15 @@ author_profile: true
 {% endif %}
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".archive__item a").forEach(a => {
+      a.removeAttribute("href");
+      a.style.pointerEvents = "none";
+      a.style.cursor = "default";
+      a.style.textDecoration = "none";
+      a.style.color = "inherit";
+    });
+  });
+</script>
 
