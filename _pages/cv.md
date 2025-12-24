@@ -1,3 +1,9 @@
+---
+layout: single
+title: "CV"
+permalink: /cv/
+author_profile: true
+---
 ### David Mailland
 
 Independent researcher  
@@ -42,7 +48,7 @@ Performance studies of aircraft operations on contaminated runways.
 
 ### Education
 
-**Master’s degree in Engineering (ENSCIA / ISAE-SUPAERO)**  
+**Master’s degree in Engineering (ISAE-SUPAERO / ENSICA)**  
 Toulouse, France, 1999–2002
 
 **Visiting student, Fluid Mechanics Department**  
