@@ -11,7 +11,8 @@
 
 <!-- After load: remove toggle if injected back -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".theme-toggle, #theme-toggle").forEach(el => el.remove());
-  });
+  if (!localStorage.getItem("theme") && !localStorage.getItem("mm-theme")) {
+    localStorage.setItem("mm-theme","dark");
+    localStorage.setItem("theme","dark");
+  }
 </script>
