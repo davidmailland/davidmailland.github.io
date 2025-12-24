@@ -63,3 +63,9 @@ button[aria-label*="theme" i],
 button[title*="theme" i] {
   display: none !important;
 }
+
+
+/* Force dark theme by default */
+:root { color-scheme: dark; }
+body { background: #111 !important; color: #eee !important; }
+a { color: inherit; }
