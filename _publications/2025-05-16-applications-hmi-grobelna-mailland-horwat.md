@@ -12,5 +12,5 @@ This narrative review addresses recent developments and future challenges in the
 of automotive human-machine interfaces (HMIs), with a focus on user experience,
 safety, and security. It synthesizes contemporary research on usability, emerging
 technologies and interface design principles to support more intuitive interaction
-in advanced vehicles. :contentReference[oaicite:0]{index=0}
+in advanced vehicles. 
 </div>
