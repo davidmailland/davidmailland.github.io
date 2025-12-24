@@ -1,17 +1,14 @@
 ---
-layout: single
-title: "Teaching"
-permalink: /teaching/
-author_profile: true
-date: false
-last_modified_at: false
+title: "University of Toulouse III - Paul Sabatier (UPS)"
+collection: teaching
+permalink: /teaching/ups/
+date: 2021-09-01
 ---
 
 ![University of Toulouse III – Paul Sabatier campus]({{ site.baseurl }}/images/UPS.jpg)
-
-### University of Toulouse III – Paul Sabatier (UPS)
 
 **Lecturer in Mathematics (2007–2021)**  
 UPSSITECH engineering school
 
 Applied mathematics and systems modelling for engineering students, with a focus on reliability and safety.
+
