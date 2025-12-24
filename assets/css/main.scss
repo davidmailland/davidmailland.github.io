@@ -8,6 +8,8 @@
    sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
  */
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+
 @import
     "vendor/breakpoint/breakpoint",
 
@@ -39,8 +41,8 @@
 
     "vendor/font-awesome/fontawesome",
     "vendor/font-awesome/solid",
-    "vendor/font-awesome/brands",
-    "vendor/academicons/academicons"
+    "vendor/font-awesome/brands"
+    // "vendor/academicons/academicons"
 ;
 
 /* ---------------------------------------------
