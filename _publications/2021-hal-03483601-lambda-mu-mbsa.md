@@ -1,7 +1,7 @@
 ---
 title: "Expérimentation de la méthodologie MBSA pour l’analyse de systèmes complexes"
 collection: publications
-category: conferences_fr
+category: publications
 date: 2021-10-01
 venue: "Conférence Lambda-Mu 22, France"
 paperurl: "https://hal.science/hal-03483601"
