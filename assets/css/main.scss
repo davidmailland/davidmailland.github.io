@@ -41,3 +41,14 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+
+/* ---------------------------------------------
+   Academic text justification
+   --------------------------------------------- */
+
+.page__content p,
+.archive__item-excerpt,
+.archive__item p {
+  text-align: justify;
+  hyphens: auto;
+}
