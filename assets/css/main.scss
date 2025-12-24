@@ -65,7 +65,3 @@ button[title*="theme" i] {
 }
 
 
-/* Force dark theme by default */
-:root { color-scheme: dark; }
-body { background: #111 !important; color: #eee !important; }
-a { color: inherit; }
