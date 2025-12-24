@@ -1,64 +1,61 @@
----
-layout: archive
-title: "CV"
-permalink: /cv/
-author_profile: true
-redirect_from:
-  - /resume
+### David Mailland
+
+Independent researcher  
+Mathematics, reliability, discrete and formal models
+
 ---
 
-{% include base_path %}
+### Professional experience
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+**Safety Manager**  
+*IRIDIUM, EGNOS, GALILEO programmes — Thales Alenia Space*  
+2007–2021, Toulouse, France
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+Safety management for large-scale critical space systems.  
+Risk analysis, dependability studies, and system-level safety assessments for operational satellite navigation and communication programmes.
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+---
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+**Lecturer in Mathematics**  
+*University of Toulouse III – Paul Sabatier (UPSSITECH engineering school)*  
+2007–2021, Toulouse, France
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+Teaching applied mathematics and systems modelling for engineering students, with a focus on reliability and safety-related methods.
+
+---
+
+**Safety Engineer**  
+*Airbus*  
+2003–2007, Toulouse, France
+
+Risk analysis and dependability studies on civil and military aircraft programmes.
+
+---
+
+**Aircraft Performance Intern**  
+*Airbus*  
+2001, Toulouse, France
+
+Performance studies of aircraft operations on contaminated runways.
+
+---
+
+### Education
+
+**Master’s degree in Engineering (ENSCIA / ISAE-SUPAERO)**  
+Toulouse, France, 1999–2002
+
+**Visiting student, Fluid Mechanics Department**  
+University of Southern California, Los Angeles, USA, 2001
+
+---
+
+### Research interests
+
+Discrete mathematics, Petri nets, reliability modelling, Markov chains, and generative mathematical structures.
+
+---
+
+### Tools and methods
+
+Petri nets · Markov chains · Fault Tree Analysis · Safety and reliability modelling · Python · LaTeX
