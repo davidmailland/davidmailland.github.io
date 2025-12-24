@@ -1,9 +1,11 @@
 ---
-title: "University of Toulouse III – Paul Sabatier (UPS)"
-collection: teaching
-type: "Lecturer in Mathematics"
-permalink: /teaching/ups/
+layout: archive
+title: "Teaching"
+permalink: /teaching/
+author_profile: true
 ---
-Lecturer in Mathematics at Université Toulouse III – Paul Sabatier (UPSSITECH engineering school).
+{% include base_path %}
 
-Teaching applied mathematics and systems modelling for engineering students, with a focus on reliability and safety-related methods.
+{% for post in site.teaching reversed %}
+  {% include archive-single.html %}
+{% endfor %}
