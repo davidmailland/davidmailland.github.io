@@ -31,7 +31,7 @@ Teaching applied mathematics and systems modelling for engineering students, wit
 ---
 
 **Safety Engineer**  
-*Airbus*  
+*Airbus Protect*  
 2003–2007, Toulouse, France
 
 Risk analysis and dependability studies on civil and military aircraft programmes.
@@ -39,7 +39,7 @@ Risk analysis and dependability studies on civil and military aircraft programme
 ---
 
 **Aircraft Performance Intern**  
-*Airbus*  
+*Airbus France*  
 2001, Toulouse, France
 
 Performance studies of aircraft operations on contaminated runways.
