@@ -1,7 +1,7 @@
 ---
 title: "Model Based Approach for RAMS Analyses in the Space Domain with Capella Open-Source Tool"
 collection: publications
-category: conferences_fr
+category: publications
 date: 2019-10-11
 venue: "International Symposium on Model-Based Safety and Assessment (IMBSA 2019)"
 paperurl: "https://doi.org/10.1007/978-3-030-32872-6_2"
