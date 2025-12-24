@@ -68,3 +68,6 @@
 :root { color-scheme: dark; }
 html { filter: none; }
 
+.teaching-no-meta .page__meta {
+  display: none !important;
+}
