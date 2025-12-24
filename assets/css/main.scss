@@ -54,9 +54,12 @@
 }
 
 /* ---------------------------------------------
-   Academic text justification
+   Remove them button
    --------------------------------------------- */
 
-#theme-toggle {
+.theme-toggle,
+button.theme-toggle,
+button[aria-label*="theme" i],
+button[title*="theme" i] {
   display: none !important;
 }
