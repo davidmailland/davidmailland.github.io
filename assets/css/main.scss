@@ -62,3 +62,7 @@
   display: none !important;
 }
 
+/* Default to dark */
+:root { color-scheme: dark; }
+html { filter: none; }
+
