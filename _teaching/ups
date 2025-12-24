@@ -3,11 +3,13 @@ layout: single
 title: "Teaching"
 permalink: /teaching/
 author_profile: true
+date: false
+last_modified_at: false
 ---
 
 ![University of Toulouse III – Paul Sabatier campus]({{ site.baseurl }}/images/UPS.jpg)
 
-### University of Toulouse III - Paul Sabatier (UPS)
+### University of Toulouse III – Paul Sabatier (UPS)
 
 **Lecturer in Mathematics (2007–2021)**  
 UPSSITECH engineering school
