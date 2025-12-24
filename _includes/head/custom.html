@@ -1,26 +1,17 @@
-{% include base_path %}
-
-<!-- start custom head snippets -->
-
-<!-- Support for Academicons -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
-
-<!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
-<link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png"/>
-<link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon.svg"/>
-<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32.png" sizes="32x32"/>
-<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
-<link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
-<link rel="icon" href="/images/favicon.ico"/>
-<meta name="theme-color" content="#ffffff"/>
-
-<!-- end custom head snippets -->
-
+<!-- Force dark ASAP (before theme scripts) -->
 <script>
-  // Force dark before any theme script runs
   document.documentElement.setAttribute("data-theme", "dark");
   localStorage.setItem("theme", "dark");
   localStorage.setItem("themeSetting", "dark");
+  localStorage.setItem("mm-theme", "dark");  // fréquent sur Minimal Mistakes
 </script>
 
-<meta name="theme-color" content="#0b0f14">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f14">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+
+<!-- After load: remove toggle if injected back -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".theme-toggle, #theme-toggle").forEach(el => el.remove());
+  });
+</script>
