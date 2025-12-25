@@ -71,3 +71,20 @@ html { filter: none; }
 .teaching-no-meta .page__meta {
   display: none !important;
 }
+
+/* ---------------------------------------------
+   Headings on dark background (Publications)
+   --------------------------------------------- */
+
+.page__content h2 {
+  color: #e5e7eb;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.page__content h3 {
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-top: 1.5rem;
+}
