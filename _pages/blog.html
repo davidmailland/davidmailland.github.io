@@ -1,19 +1,30 @@
----
-layout: archive
-permalink: /blog/
-title: "Blog posts"
-author_profile: true
-redirect_from:
-  - /wordpress/blog-posts/
----
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Field note</title>
+  <meta name="description" content="Field note: p’tit wrap + a tiny Fermat joke." />
+  <style>
+    body { max-width: 720px; margin: 40px auto; padding: 0 16px; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    header { margin-bottom: 24px; }
+    h1 { font-size: 2rem; margin: 0 0 6px; }
+    .meta { color: #666; font-size: 0.95rem; }
+    blockquote { margin: 22px 0; padding: 10px 16px; border-left: 4px solid #ddd; color: #222; }
+    em { font-style: italic; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Field note</h1>
+    <div class="meta">10 January 2026 · notes, field work</div>
+  </header>
 
-{% include base_path %}
-{% capture written_year %}'None'{% endcapture %}
-{% for post in site.posts %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% if year != written_year %}
-    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-    {% capture written_year %}{{ year }}{% endcapture %}
-  {% endif %}
-  {% include archive-single.html %}
-{% endfor %}
+  <p>Headed to a French McDonald’s for a field assessment of the <em>p’tit wrap</em>.</p>
+
+  <blockquote>
+    I have a truly elegant proof showing why<br />
+    a<sup>n</sup> + b<sup>n</sup> ≠ c<sup>n</sup> for n &gt; 2,<br />
+    but unfortunately the PSG kick-off is in 15 minutes.
+  </blockquote>
+</body>
