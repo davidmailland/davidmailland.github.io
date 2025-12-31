@@ -10,5 +10,8 @@ A personal exploration of mathematical structures, visual forms, and the quiet p
 
 This site brings together notes, figures, and publications arising from these mathematical explorations.
 
-*Mathematics, rightly viewed, possesses not only truth, but supreme beauty.*  
-— Bertrand Russell
+
+<div class="russell-quote">
+  “Mathematics, rightly viewed, possesses not only truth, but supreme beauty.”<br>
+  <span class="russell-attr">— Bertrand Russell, <em>Mysticism and Logic</em></span>
+</div>
