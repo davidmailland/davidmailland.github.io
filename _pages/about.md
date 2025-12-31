@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Mathematics, Art and Other Things..."
+title: "Mathematics and Art"
 author_profile: true
 redirect_from: 
   - /about/
