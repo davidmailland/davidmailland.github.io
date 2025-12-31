@@ -8,4 +8,7 @@ redirect_from:
 ---
 A personal exploration of mathematical structures, visual forms, and the quiet places where they unexpectedly meet.
 
-This site brings together notes, figures, and other publications arising from these mathematical explorations, along with other things that tend to converge, sometimes without proof.
+This site brings together notes, figures, and publications arising from these mathematical explorations.
+
+*Mathematics, rightly viewed, possesses not only truth, but supreme beauty.*  
+— Bertrand Russell
