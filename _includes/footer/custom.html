@@ -14,3 +14,27 @@
 </script>
 
 <!-- end custom footer snippets -->
+
+{% if page.url == "/" %}
+<div id="russell-quote">
+  “Mathematics, rightly viewed, possesses not only truth, but supreme beauty.”<br />
+  <span>— Bertrand Russell, <em>Mysticism and Logic</em></span>
+</div>
+
+<style>
+  /* Put it on top of everything, independent of theme stacking contexts */
+  #russell-quote{
+    position: fixed;
+    right: 22px;
+    bottom: 16px;
+    max-width: 520px;
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.25;
+    opacity: 0.65;
+    pointer-events: none;
+    z-index: 2147483647 !important;
+  }
+  #russell-quote span{ font-size: 11px; }
+</style>
+{% endif %}
