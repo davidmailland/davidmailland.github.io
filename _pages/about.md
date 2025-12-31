@@ -12,7 +12,7 @@ This site brings together notes, figures, and publications arising from these ma
 
 
 <div style="
-  position: fixed;
+  position: absolute;
   right: 22px;
   bottom: 16px;
   max-width: 520px;
