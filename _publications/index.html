@@ -14,37 +14,23 @@ author_profile: true
 
 /* --- Publication card --- */
 .pub-card{
-  position: relative;
-  padding: 14px 0 58px 0;              /* reserve space for bottom thumbs */
   border-bottom: 1px solid rgba(0,0,0,.12);
+  padding: 14px 0;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
 }
-.pub-meta{ padding-right: 320px; }     /* keep text away from thumbs */
-.pub-meta h3{ margin:0 0 6px 0; font-size:1.05rem; }
-.pub-venue{ margin:0 0 8px 0; opacity:.85; }
-.pub-abstract{ margin:0 0 10px 0; }
-.pub-links{ margin:0 0 8px 0; }
 
-.pub-links .btn{
-  display:inline-block;
-  padding:6px 10px;
-  border:1px solid rgba(0,0,0,.20);
-  border-radius:10px;
-  text-decoration:none;
-  margin-right:6px;
-  font-size:0.95em;
-}
-.pub-links .btn:hover{ border-color: rgba(0,0,0,.45); }
+.pub-meta{ flex: 1; min-width: 0; } /* min-width évite des bugs de flex wrap */
 
-details{ margin:8px 0; }
-
-/* --- Thumbnails bottom-right --- */
 .pub-thumbs{
-  position: absolute;
-  right: 0;
-  bottom: 12px;
+  position: static;       /* plus d’absolu */
   display: flex;
   gap: 10px;
+  align-self: flex-end;   /* colle les thumbs en bas du bloc */
+  margin-left: auto;      /* pousse à droite */
 }
+
 .pub-thumbs a{ display:block; line-height:0; }
 .pub-thumbs img{
   width: 90px;
@@ -55,12 +41,14 @@ details{ margin:8px 0; }
   box-shadow: 0 2px 10px rgba(0,0,0,.12);
 }
 
-/* --- Responsive --- */
+/* Responsive: thumbs passent sous le texte */
 @media (max-width: 820px){
-  .pub-meta{ padding-right: 0; }
-  .pub-card{ padding-bottom: 14px; }
-  .pub-thumbs{ position: static; margin-top: 10px; }
+  .pub-card{ flex-direction: column; }
+  .pub-thumbs{ align-self: flex-start; margin-top: 10px; }
 }
+
+  
+
 
 /* --- Lightbox (CSS-only, opens on page) --- */
 .lightbox{
