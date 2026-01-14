@@ -4,6 +4,38 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+<style>
+.pub-card{
+  position: relative;
+  padding: 14px 0 18px 0;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.pub-thumbs{
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.pub-thumbs a img{
+  width: 92px;            /* taille thumbnail */
+  height: 92px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+  border: 1px solid rgba(0,0,0,.15);
+}
+
+@media (max-width: 720px){
+  .pub-thumbs{
+    position: static;     /* sur mobile, ça repasse sous le texte */
+    margin-top: 10px;
+    justify-content: flex-start;
+  }
+}
+</style>
 
 <style>
 .pubs-intro{margin:0 0 18px 0;}
@@ -57,57 +89,32 @@ pre{background:rgba(0,0,0,.04); padding:10px; border-radius:10px; overflow:auto;
   <h2>Journal articles</h2>
 
 <article class="pub-card">
-  <a class="pub-thumb" href="/images/Pascal3.png">
-    <img src="/images/Pascal3.png"
-         alt="Pascal triangle Petri-net visualisation (parity fractal pattern)"
-         loading="lazy">
-  </a>
+  <h3>From Mathematics to Art: Modelling the Pascal’s Triangle with Petri Nets</h3>
 
-  <div class="pub-meta">
-    <h3>From Mathematics to Art: Modelling the Pascal’s Triangle with Petri Nets</h3>
-    <p class="pub-venue">Published in <em>Symmetry</em> (Special Issue), 2025</p>
+  <p class="pub-venue">Published in <em>Symmetry</em> (Special Issue), 2025</p>
 
-    <p class="pub-abstract">
-      We propose a Petri-net-based modelling of Pascal’s triangle, bridging discrete mathematics and formal modelling.
-      The approach supports structural insights and visually interpretable representations.
-    </p>
+  <p class="pub-abstract">
+    We propose a Petri-net-based modelling of Pascal’s triangle, bridging discrete mathematics and formal modelling.
+    The approach supports structural insights and visually interpretable representations.
+  </p>
 
-    <p class="pub-links">
-      <a class="btn" href="https://doi.org/10.3390/sym17122181" target="_blank" rel="noopener">DOI</a>
-      <!-- Si tu héberges le PDF :
-      <a class="btn" href="/files/symmetry_pascal_2025.pdf" target="_blank" rel="noopener">PDF</a>
-      -->
-    </p>
+  <p class="pub-links">
+    <a class="btn" href="https://doi.org/10.3390/sym17122181" target="_blank" rel="noopener">DOI</a>
+  </p>
 
-    <details>
-      <summary>Figures</summary>
-      <p style="margin:10px 0 0 0;">
-        <a href="/images/Pascal1.png" target="_blank" rel="noopener">
-          <img src="/images/Pascal1.png"
-               alt="Petri net structure for Pascal triangle"
-               style="max-width:260px; height:auto; border-radius:10px; margin-right:10px; margin-bottom:10px;">
-        </a>
-
-        <a href="/images/Pascal2.png" target="_blank" rel="noopener">
-          <img src="/images/Pascal2.png"
-               alt="Parity marking on the Pascal Petri net"
-               style="max-width:260px; height:auto; border-radius:10px; margin-right:10px; margin-bottom:10px;">
-        </a>
-      </p>
-    </details>
-
-    <details>
-      <summary>Recommended citation</summary>
-      <p>
-        Mailland, D.; Grobelna, I. (2025).
-        <em>From Mathematics to Art: Modelling the Pascal's Triangle with Petri Nets</em>.
-        Symmetry, 17(12), 2181. DOI: 10.3390/sym17122181
-      </p>
-    </details>
+  <!-- 3 thumbnails en bas à droite -->
+  <div class="pub-thumbs" aria-label="Pascal figures">
+    <a href="/images/Pascal3.png" target="_blank" rel="noopener" title="Fractal view">
+      <img src="/images/Pascal3.png" alt="Pascal fractal figure" loading="lazy">
+    </a>
+    <a href="/images/Pascal1.png" target="_blank" rel="noopener" title="Petri net structure">
+      <img src="/images/Pascal1.png" alt="Pascal Petri net structure" loading="lazy">
+    </a>
+    <a href="/images/Pascal2.png" target="_blank" rel="noopener" title="Parity marking">
+      <img src="/images/Pascal2.png" alt="Pascal parity marking" loading="lazy">
+    </a>
   </div>
 </article>
-
-
 
 
 
