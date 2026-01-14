@@ -14,21 +14,21 @@ author_profile: true
 
 /* --- Publication card --- */
 .pub-card{
-  border-bottom: 1px solid rgba(0,0,0,.12);
+  position: relative;
   padding: 14px 0;
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
+  border-bottom: 1px solid rgba(0,0,0,.12);
 }
 
-.pub-meta{ flex: 1; min-width: 0; } /* min-width évite des bugs de flex wrap */
+.pub-meta{ padding-right: 0; } /* IMPORTANT: plus de trou permanent */
 
+/* Thumbs: float right => le texte peut occuper toute la largeur,
+   sauf là où les thumbs existent réellement */
 .pub-thumbs{
-  position: static;       /* plus d’absolu */
+  float: right;
   display: flex;
   gap: 10px;
-  align-self: flex-end;   /* colle les thumbs en bas du bloc */
-  margin-left: auto;      /* pousse à droite */
+  margin: 10px 0 0 12px; /* espace entre texte et thumbs */
+  max-width: 320px;      /* largeur max de la zone thumbs */
 }
 
 .pub-thumbs a{ display:block; line-height:0; }
@@ -41,10 +41,19 @@ author_profile: true
   box-shadow: 0 2px 10px rgba(0,0,0,.12);
 }
 
-/* Responsive: thumbs passent sous le texte */
+/* Clear float en fin de carte */
+.pub-card::after{
+  content:"";
+  display:block;
+  clear: both;
+}
+
+/* Responsive: thumbs sous le texte */
 @media (max-width: 820px){
-  .pub-card{ flex-direction: column; }
-  .pub-thumbs{ align-self: flex-start; margin-top: 10px; }
+  .pub-thumbs{
+    float: none;
+    margin: 10px 0 0 0;
+  }
 }
 
   
