@@ -4,6 +4,17 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+<script>
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('.pub-thumbs a[href^="#"]');
+  if(!a) return;
+  e.preventDefault();
+  const id = a.getAttribute("href");
+  history.pushState(null, "", id);
+  const el = document.querySelector(id);
+  if(el) el.style.display = "block";
+});
+</script>
 
 <style>
 /* --- Layout sections --- */
