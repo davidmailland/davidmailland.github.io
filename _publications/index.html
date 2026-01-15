@@ -52,7 +52,7 @@ details{ margin:8px 0; }
 
   position: relative;
   z-index: 5;
-  cursor: pointer; /* au cas où */
+  cursor: pointer; 
 }
 
 .pub-thumbs a,
@@ -120,7 +120,7 @@ details{ margin:8px 0; }
   cursor: pointer;
 }
 
-}
+
 .pub-thumbs a,
 .pub-thumbs a img{ cursor:pointer; }
 
@@ -750,10 +750,27 @@ details{ margin:8px 0; }
 
 
 <script>
-document.addEventListener("click", (e) => {
-  const a = e.target.closest('.pub-thumbs a[href^="#"]');
-  if (!a) return;
-  const y = window.scrollY;
-  requestAnimationFrame(() => window.scrollTo(0, y));
-});
+(() => {
+  let savedY = null;
+
+  // on capture la position AVANT le jump
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('.pub-thumbs a[href^="#"]');
+    if (!a) return;
+    savedY = window.scrollY;
+  }, true);
+
+  // le navigateur a fait le jump -> on restaure
+  window.addEventListener("hashchange", () => {
+    if (savedY === null) return;
+    const y = savedY;
+    savedY = null;
+
+    // double restore = robuste
+    setTimeout(() => {
+      window.scrollTo(0, y);
+      requestAnimationFrame(() => window.scrollTo(0, y));
+    }, 0);
+  });
+})();
 </script>
