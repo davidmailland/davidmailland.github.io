@@ -24,10 +24,14 @@ document.addEventListener("click", (e) => {
 .pub-section h2{margin:0 0 10px 0; font-size:1.25rem;}
 
 /* --- Publication card --- */
-.pub-card{
+
+
+  .pub-card{
   position: relative;
   padding: 14px 0;
   border-bottom: 1px solid rgba(0,0,0,.12);
+
+  display: flow-root; 
 }
 
 .pub-meta{ padding-right: 0; } /* IMPORTANT: no permanent right gap */
@@ -50,38 +54,25 @@ document.addEventListener("click", (e) => {
 
 details{ margin:8px 0; }
 
-/* --- Thumbs: float right so text only avoids them where they exist --- */
 .pub-thumbs{
   float: right;
   display: flex;
   gap: 10px;
-  margin: 10px 0 0 12px; /* space between text and thumbs */
+  margin: 10px 0 0 12px;
   width: fit-content;
+
+  position: relative;
+  z-index: 5;
+  cursor: pointer; /* au cas où */
 }
 
-.pub-thumbs a{ display:block; line-height:0; }
+.pub-thumbs a,
 .pub-thumbs img{
-  width: 90px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,.18);
-  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+  cursor: pointer;
 }
 
-/* Clear float at end of card */
-.pub-card::after{
-  content:"";
-  display:block;
-  clear: both;
-}
-
-/* Responsive: thumbs under text */
-@media (max-width: 820px){
-  .pub-thumbs{
-    float: none;
-    margin: 10px 0 0 0;
-  }
+.pub-thumbs img{
+  display: block; /* supprime les bizarreries inline/baseline */
 }
 
 /* --- Lightbox (CSS-only, opens on page) --- */
