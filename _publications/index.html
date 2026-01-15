@@ -71,7 +71,7 @@ details{ margin:8px 0; }
   display: none;
   z-index: 9999;
 }
-.lightbox:target{ display: block; }
+.lightbox.is-open{ display:block; }
 
 .lightbox__backdrop{
   position: absolute;
@@ -751,26 +751,35 @@ details{ margin:8px 0; }
 
 <script>
 (() => {
-  let savedY = null;
+  function openLightbox(id) {
+    const lb = document.querySelector(id);
+    if (!lb) return;
+    lb.classList.add("is-open");
+  }
 
-  // on capture la position AVANT le jump
+  function closeLightboxes() {
+    document.querySelectorAll(".lightbox.is-open").forEach(lb => lb.classList.remove("is-open"));
+  }
+
+  // OUVRIR: empêche le #hash => plus de scroll automatique
   document.addEventListener("click", (e) => {
-    const a = e.target.closest('.pub-thumbs a[href^="#"]');
+    const a = e.target.closest('.pub-thumbs a[href^="#img-"]');
     if (!a) return;
-    savedY = window.scrollY;
-  }, true);
+    e.preventDefault();
+    openLightbox(a.getAttribute("href"));
+  });
 
-  // le navigateur a fait le jump -> on restaure
-  window.addEventListener("hashchange", () => {
-    if (savedY === null) return;
-    const y = savedY;
-    savedY = null;
+  // FERMER: backdrop ou bouton close
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".lightbox__backdrop") || e.target.closest(".lightbox__close")) {
+      e.preventDefault();
+      closeLightboxes();
+    }
+  });
 
-    // double restore = robuste
-    setTimeout(() => {
-      window.scrollTo(0, y);
-      requestAnimationFrame(() => window.scrollTo(0, y));
-    }, 0);
+  // ESC pour fermer
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightboxes();
   });
 })();
 </script>
