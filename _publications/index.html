@@ -7,14 +7,14 @@ author_profile: true
 <script>
 document.addEventListener("click", (e) => {
   const a = e.target.closest('.pub-thumbs a[href^="#"]');
-  if(!a) return;
-  e.preventDefault();
-  const id = a.getAttribute("href");
-  history.pushState(null, "", id);
-  const el = document.querySelector(id);
-  if(el) el.style.display = "block";
+  if (!a) return;
+
+  const y = window.scrollY;              // position actuelle
+  // on laisse le navigateur changer le hash (donc :target fonctionne)
+  setTimeout(() => window.scrollTo(0, y), 0);  // on restaure le scroll
 });
 </script>
+
 
 <style>
 /* --- Layout sections --- */
@@ -140,9 +140,6 @@ details{ margin:8px 0; }
   cursor: pointer;
 }
 
-.pub-card::before,
-.pub-card::after{
-  pointer-events: none;
 }
 .pub-thumbs a,
 .pub-thumbs a img{ cursor:pointer; }
@@ -544,7 +541,7 @@ details{ margin:8px 0; }
     <a class="lightbox__backdrop" href="#"></a>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 21 figure 1">
       <a class="lightbox__close" href="#" aria-label="Close">✕</a>
-      <img src="/images/papers/Exp01.png.png" alt="Lambda-Mu 21 (full)">
+      <img src="/images/papers/Exp01.png" alt="Lambda-Mu 21 (full)">
     </div>
   </div>
 
