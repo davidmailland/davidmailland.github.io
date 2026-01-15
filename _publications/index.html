@@ -13,18 +13,14 @@ author_profile: true
 .pub-section h2{margin:0 0 10px 0; font-size:1.25rem;}
 
 /* --- Publication card --- */
-
-
-  .pub-card{
+.pub-card{
   position: relative;
   padding: 14px 0;
   border-bottom: 1px solid rgba(0,0,0,.12);
-
-  display: flow-root; 
+  display: flow-root;
 }
 
-.pub-meta{ padding-right: 0; } /* IMPORTANT: no permanent right gap */
-
+.pub-meta{ padding-right: 0; } /* no permanent right gap */
 .pub-meta h3{ margin:0 0 6px 0; font-size:1.05rem; }
 .pub-venue{ margin:0 0 8px 0; opacity:.85; }
 .pub-abstract{ margin:0 0 10px 0; }
@@ -43,16 +39,15 @@ author_profile: true
 
 details{ margin:8px 0; }
 
+/* --- Thumbs --- */
 .pub-thumbs{
   float: right;
   display: flex;
   gap: 10px;
   margin: 10px 0 0 12px;
   width: fit-content;
-
   position: relative;
   z-index: 5;
-  cursor: pointer; 
 }
 
 .pub-thumbs a,
@@ -60,11 +55,24 @@ details{ margin:8px 0; }
   cursor: pointer;
 }
 
-.pub-thumbs img{
-  display: block; /* supprime les bizarreries inline/baseline */
+.pub-thumbs a{
+  flex: 0 0 auto;
+  line-height: 0;
 }
 
-/* --- Lightbox (CSS-only, opens on page) --- */
+/* Force taille des thumbnails (surpasse le thème) */
+.pub-thumbs img{
+  width: 90px !important;
+  height: 60px !important;
+  max-width: none !important;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.18);
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+
+/* --- Lightbox (JS-driven) --- */
 .lightbox{
   position: fixed;
   inset: 0;
@@ -114,47 +122,20 @@ details{ margin:8px 0; }
   font-weight: 700;
 }
 
-  
-.pub-thumbs a,
-.pub-thumbs a img{
-  cursor: pointer;
+/* Responsive: thumbs under text */
+@media (max-width: 820px){
+  .pub-thumbs{
+    float: none;
+    margin: 10px 0 0 0;
+  }
 }
-
-
-.pub-thumbs a,
-.pub-thumbs a img{ cursor:pointer; }
-
-
-
-/* Force taille des thumbnails (surpasse le thème) */
-.pub-thumbs img{
-  width: 90px !important;
-  height: 60px !important;
-  max-width: none !important;
-  object-fit: cover;
-  display: block;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,.18);
-  box-shadow: 0 2px 10px rgba(0,0,0,.12);
-}
-
-.pub-thumbs{
-  display: flex;
-  gap: 10px;
-}
-
-.pub-thumbs a{
-  flex: 0 0 auto;
-  line-height: 0;
-  cursor: pointer;
-}
-
-
-  
 </style>
 
 <p class="pubs-intro">
-  You can also consult my <a href="https://scholar.google.fr/citations?hl=fr&user=fOZYuXQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar profile</a>.
+  You can also consult my
+  <a href="https://scholar.google.fr/citations?hl=fr&user=fOZYuXQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">
+    Google Scholar profile
+  </a>.
 </p>
 
 <!-- ========================= -->
@@ -163,47 +144,43 @@ details{ margin:8px 0; }
 <div class="pub-section">
   <h2>Journal articles</h2>
 
-<article class="pub-card">
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="Fibonacci figures">
+      <a href="#img-fibo-1" title="Petri net structure">
+        <img src="/images/papers/Fibo01.png" alt="Fibonacci Petri net structure" loading="lazy">
+      </a>
+      <a href="#img-fibo-2" title="Modular / fractal view">
+        <img src="/images/papers/Fibo02.png" alt="Fibonacci modular/fractal figure" loading="lazy">
+      </a>
+    </div>
 
-  <div class="pub-thumbs" aria-label="Fibonacci figures">
-    <a href="#img-fibo-1" title="Petri net structure">
-      <img src="/images/papers/Fibo01.png" alt="Fibonacci Petri net structure" loading="lazy">
-    </a>
-    <a href="#img-fibo-2" title="Modular / fractal view">
-      <img src="/images/papers/Fibo02.png" alt="Fibonacci modular/fractal figure" loading="lazy">
-    </a>
-  </div>
+    <div class="pub-meta">
+      <h3>From Mathematics to Art: Modelling the Fibonacci Sequence with Petri Nets</h3>
+      <p class="pub-venue">Published in <em>Fractal and Fractional</em>, 10(1), 53</p>
 
-  <div class="pub-meta">
-    <h3>From Mathematics to Art: Modelling the Fibonacci Sequence with Petri Nets</h3>
-    <p class="pub-venue">Published in <em>Fractal and Fractional</em>, 10(1), 53</p>
-
-    <p class="pub-abstract">
-      We propose a Petri-net-based modelling of the Fibonacci recurrence, bridging discrete mathematics and formal modelling.
-      The approach supports structural insights and visually interpretable representations.
-    </p>
-
-    <p class="pub-links">
-      <a class="btn" href="https://www.mdpi.com/2504-3110/10/1/53" target="_blank" rel="noopener">MDPI</a>
-    </p>
-
-    <details>
-      <summary>Recommended citation</summary>
-      <p>
-        Mailland, D.; Grobelna, I. (Year).
-        <em>From Mathematics to Art: Modelling the Fibonacci Sequence with Petri Nets</em>.
-        Fractal and Fractional, 10(1), 53.
-        Available at: https://www.mdpi.com/2504-3110/10/1/53
+      <p class="pub-abstract">
+        We propose a Petri-net-based modelling of the Fibonacci recurrence, bridging discrete mathematics and formal modelling.
+        The approach supports structural insights and visually interpretable representations.
       </p>
-    </details>
-  </div>
 
-</article>
+      <p class="pub-links">
+        <a class="btn" href="https://www.mdpi.com/2504-3110/10/1/53" target="_blank" rel="noopener">MDPI</a>
+      </p>
 
+      <details>
+        <summary>Recommended citation</summary>
+        <p>
+          Mailland, D.; Grobelna, I. (Year).
+          <em>From Mathematics to Art: Modelling the Fibonacci Sequence with Petri Nets</em>.
+          Fractal and Fractional, 10(1), 53.
+          Available at: https://www.mdpi.com/2504-3110/10/1/53
+        </p>
+      </details>
+    </div>
+  </article>
 
   <!-- ===== Symmetry (Pascal, 2025) ===== -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="Pascal figures">
       <a href="#img-pascal-1" title="Fractal view">
         <img src="/images/papers/Pascal3.png" alt="Pascal fractal figure" loading="lazy">
@@ -221,7 +198,8 @@ details{ margin:8px 0; }
       <p class="pub-venue">Published in <em>Symmetry</em> (Special Issue), 2025</p>
 
       <p class="pub-abstract">
-        We propose a Petri-net-based modelling of Pascal’s triangle, bridging discrete mathematics and formal modelling. The approach supports structural insights and visually interpretable representations.
+        We propose a Petri-net-based modelling of Pascal’s triangle, bridging discrete mathematics and formal modelling.
+        The approach supports structural insights and visually interpretable representations.
       </p>
 
       <p class="pub-links">
@@ -239,32 +217,46 @@ details{ margin:8px 0; }
     </div>
   </article>
 
-  <!-- Lightboxes: Pascal -->
+  <!-- Lightboxes: Fibonacci + Pascal -->
+  <div id="img-fibo-1" class="lightbox" aria-hidden="true">
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
+    <div class="lightbox__content" role="dialog" aria-label="Fibonacci figure 1">
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
+      <img src="/images/papers/Fibo01.png" alt="Fibonacci Petri net structure">
+    </div>
+  </div>
+  <div id="img-fibo-2" class="lightbox" aria-hidden="true">
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
+    <div class="lightbox__content" role="dialog" aria-label="Fibonacci figure 2">
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
+      <img src="/images/papers/Fibo02.png" alt="Fibonacci modular/fractal figure">
+    </div>
+  </div>
+
   <div id="img-pascal-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Pascal figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/Pascal3.png" alt="Pascal fractal figure">
     </div>
   </div>
   <div id="img-pascal-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Pascal figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/Pascal1.png" alt="Pascal Petri net structure">
     </div>
   </div>
   <div id="img-pascal-3" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Pascal figure 3">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/Pascal2.png" alt="Pascal parity marking">
     </div>
   </div>
 
   <!-- ===== Information (Collatz, 2025) ===== -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="Collatz figures">
       <a href="#img-collatz-1" title="Collatz figure 1">
         <img src="/images/papers/Collatz1.png" alt="Collatz figure 1" loading="lazy"
@@ -303,23 +295,22 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: Collatz -->
   <div id="img-collatz-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Collatz figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/Collatz1.png" alt="Collatz figure 1">
     </div>
   </div>
   <div id="img-collatz-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Collatz figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/Collatz2.png" alt="Collatz figure 2">
     </div>
   </div>
 
   <!-- ===== Applied Sciences (HMI, 2025) ===== -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="HMI figures">
       <a href="#img-ux-1" title="UX figure 1">
         <img src="/images/papers/UX1.png" alt="Automotive HMI / UX figure 1" loading="lazy"
@@ -357,78 +348,75 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: UX -->
   <div id="img-ux-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="UX figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/UX1.png" alt="Automotive HMI / UX figure 1">
     </div>
   </div>
   <div id="img-ux-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="UX figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/UX2.png" alt="Automotive HMI / UX figure 2">
     </div>
   </div>
 
-<!-- ===== IMBSA 2019 ===== -->
-<article class="pub-card">
+  <!-- ===== IMBSA 2019 ===== -->
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="IMBSA figures">
+      <a href="#img-imbsa-1" title="Capella/Arcadia to FTA">
+        <img src="/images/papers/iMBSA-01.jpg" alt="IMBSA figure 1: Capella/Arcadia to FTA" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+      <a href="#img-imbsa-2" title="Fault tree (detailed)">
+        <img src="/images/papers/iMBSA-02.jpg" alt="IMBSA figure 2: fault tree" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
 
-  <div class="pub-thumbs" aria-label="IMBSA figures">
-    <a href="#img-imbsa-1" title="Capella/Arcadia to FTA">
-      <img src="/images/papers/iMBSA-01.jpg" alt="IMBSA figure 1: Capella/Arcadia to FTA" loading="lazy"
-           onerror="this.closest('a').style.display='none';">
-    </a>
-    <a href="#img-imbsa-2" title="Fault tree (detailed)">
-      <img src="/images/papers/iMBSA-02.jpg" alt="IMBSA figure 2: fault tree" loading="lazy"
-           onerror="this.closest('a').style.display='none';">
-    </a>
-  </div>
+    <div class="pub-meta">
+      <h3>Model Based Approach for RAMS Analyses in the Space Domain with Capella Open-Source Tool</h3>
+      <p class="pub-venue">Published in IMBSA 2019</p>
 
-  <div class="pub-meta">
-    <h3>Model Based Approach for RAMS Analyses in the Space Domain with Capella Open-Source Tool</h3>
-    <p class="pub-venue">Published in IMBSA 2019</p>
-
-    <p class="pub-abstract">
-      This paper evaluates a model-based approach for RAMS analyses in the space domain using the open-source Capella tool
-      and the Arcadia methodology.
-    </p>
-
-    <p class="pub-links">
-      <a class="btn" href="https://doi.org/10.1007/978-3-030-32872-6_2" target="_blank" rel="noopener">SPRINGER</a>
-    </p>
-
-    <details>
-      <summary>Recommended citation</summary>
-      <p>
-        Bitetti, L.; De Ferluc, R.; Mailland, D.; Gregoris, G.; Capogna, F. (2019).
-        <em>Model Based Approach for RAMS Analyses in the Space Domain with Capella Open-Source Tool</em>.
-        LNCS 11842, pp. 18–31. DOI: 10.1007/978-3-030-32872-6_2
+      <p class="pub-abstract">
+        This paper evaluates a model-based approach for RAMS analyses in the space domain using the open-source Capella tool
+        and the Arcadia methodology.
       </p>
-    </details>
+
+      <p class="pub-links">
+        <a class="btn" href="https://doi.org/10.1007/978-3-030-32872-6_2" target="_blank" rel="noopener">SPRINGER</a>
+      </p>
+
+      <details>
+        <summary>Recommended citation</summary>
+        <p>
+          Bitetti, L.; De Ferluc, R.; Mailland, D.; Gregoris, G.; Capogna, F. (2019).
+          <em>Model Based Approach for RAMS Analyses in the Space Domain with Capella Open-Source Tool</em>.
+          LNCS 11842, pp. 18–31. DOI: 10.1007/978-3-030-32872-6_2
+        </p>
+      </details>
+    </div>
+  </article>
+
+  <!-- Lightboxes: IMBSA -->
+  <div id="img-imbsa-1" class="lightbox" aria-hidden="true">
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
+    <div class="lightbox__content" role="dialog" aria-label="IMBSA figure 1">
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
+      <img src="/images/papers/iMBSA-01.jpg" alt="IMBSA figure 1: Capella/Arcadia to FTA">
+    </div>
+  </div>
+  <div id="img-imbsa-2" class="lightbox" aria-hidden="true">
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
+    <div class="lightbox__content" role="dialog" aria-label="IMBSA figure 2">
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
+      <img src="/images/papers/iMBSA-02.jpg" alt="IMBSA figure 2: fault tree">
+    </div>
   </div>
 
-</article>
+</div> <!-- end Journal articles section -->
 
-<!-- Lightboxes: IMBSA -->
-<div id="img-imbsa-1" class="lightbox" aria-hidden="true">
-  <a class="lightbox__backdrop" href="#"></a>
-  <div class="lightbox__content" role="dialog" aria-label="IMBSA figure 1">
-    <a class="lightbox__close" href="#" aria-label="Close">✕</a>
-    <img src="/images/papers/iMBSA-01.jpg" alt="IMBSA figure 1: Capella/Arcadia to FTA">
-  </div>
-</div>
-
-<div id="img-imbsa-2" class="lightbox" aria-hidden="true">
-  <a class="lightbox__backdrop" href="#"></a>
-  <div class="lightbox__content" role="dialog" aria-label="IMBSA figure 2">
-    <a class="lightbox__close" href="#" aria-label="Close">✕</a>
-    <img src="/images/papers/iMBSA-02.jpg" alt="IMBSA figure 2: fault tree">
-  </div>
-</div>
-
-
-</div>
 
 <!-- ========================= -->
 <!-- CONFERENCE PAPERS (FR) -->
@@ -438,7 +426,6 @@ details{ margin:8px 0; }
 
   <!-- Lambda-Mu 22 -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="Lambda-Mu 22 figures">
       <a href="#img-lambdamu22-1" title="LM22 full">
         <img src="/images/papers/LM22-01.jpg" alt="Lambda-Mu 22 (full)" loading="lazy"
@@ -448,7 +435,7 @@ details{ margin:8px 0; }
         <img src="/images/papers/LM22-02.jpg" alt="Lambda-Mu 22 (thumb)" loading="lazy"
              onerror="this.closest('a').style.display='none';">
       </a>
-            <a href="#img-lambdamu22-3" title="LM22 thumb">
+      <a href="#img-lambdamu22-3" title="LM22 thumb">
         <img src="/images/papers/LM22-03.jpg" alt="Lambda-Mu 22 (thumb)" loading="lazy"
              onerror="this.closest('a').style.display='none';">
       </a>
@@ -464,9 +451,9 @@ details{ margin:8px 0; }
         analyses de sûreté de fonctionnement et discutent les limites actuelles des outils basés sur AltaRica.
       </p>
 
-    <p class="pub-links">
-      <a class="btn" href="https://hal.science/hal-03323802v1" target="_blank" rel="noopener">HAL</a>
-    </p>
+      <p class="pub-links">
+        <a class="btn" href="https://hal.science/hal-03323802v1" target="_blank" rel="noopener">HAL</a>
+      </p>
 
       <details>
         <summary>Recommended citation</summary>
@@ -481,36 +468,34 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: Lambda-Mu 22 -->
   <div id="img-lambdamu22-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 22 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/LM22-01.jpg" alt="Lambda-Mu 22 (full)">
     </div>
   </div>
   <div id="img-lambdamu22-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 22 figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/LM22-02.jpg" alt="Lambda-Mu 22 (thumb)">
     </div>
   </div>
-    <div id="img-lambdamu22-3" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+  <div id="img-lambdamu22-3" class="lightbox" aria-hidden="true">
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 22 figure 3">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/LM22-03.jpg" alt="Lambda-Mu 22 (thumb)">
     </div>
   </div>
 
   <!-- Lambda-Mu 21 -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="Lambda-Mu 21 figures">
       <a href="#img-lambdamu21-1" title="LM21 full">
         <img src="/images/papers/Exp01.png" alt="Lambda-Mu 21 (full)" loading="lazy"
              onerror="this.closest('a').style.display='none';">
       </a>
-
     </div>
 
     <div class="pub-meta">
@@ -522,10 +507,9 @@ details{ margin:8px 0; }
         avec un focus sur les enjeux méthodologiques et organisationnels liés à l’intégration de la sûreté dans des systèmes complexes.
       </p>
 
-    <p class="pub-links">
-      <a class="btn" href="https://hal.science/hal-02071107" target="_blank" rel="noopener">HAL</a>
-    </p>
-
+      <p class="pub-links">
+        <a class="btn" href="https://hal.science/hal-02071107" target="_blank" rel="noopener">HAL</a>
+      </p>
 
       <details>
         <summary>Recommended citation</summary>
@@ -538,16 +522,17 @@ details{ margin:8px 0; }
     </div>
   </article>
 
-  <!-- Lightboxes: Lambda-Mu 21 -->
+  <!-- Lightbox: Lambda-Mu 21 -->
   <div id="img-lambdamu21-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 21 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/Exp01.png" alt="Lambda-Mu 21 (full)">
     </div>
   </div>
 
 </div>
+
 
 <!-- ========================= -->
 <!-- EARLY WORK (FR) -->
@@ -555,9 +540,8 @@ details{ margin:8px 0; }
 <div class="pub-section">
   <h2>Early work (in French)</h2>
 
-  <!-- Techniques de l'Ingénieur RE451 -->
+  <!-- RE451 -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="RE451 figures">
       <a href="#img-re451-1" title="RE451 full">
         <img src="/images/papers/BSG01.png" alt="RE451 (full)" loading="lazy"
@@ -589,18 +573,16 @@ details{ margin:8px 0; }
     </div>
   </article>
 
-  <!-- Lightboxes: RE451 -->
   <div id="img-re451-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="RE451 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/BSG01.png" alt="RE451 (full)">
     </div>
   </div>
 
-  <!-- Techniques de l'Ingénieur TRP4029 -->
+  <!-- TRP4029 -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="TRP4029 figures">
       <a href="#img-trp4029-1" title="TRP4029 full">
         <img src="/images/papers/Drone01.jpg" alt="TRP4029 (full)" loading="lazy"
@@ -635,31 +617,28 @@ details{ margin:8px 0; }
     </div>
   </article>
 
-  <!-- Lightboxes: TRP4029 -->
   <div id="img-trp4029-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="TRP4029 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/Drone01.jpg" alt="TRP4029 (full)">
     </div>
   </div>
   <div id="img-trp4029-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="TRP4029 figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/Drone02.png" alt="TRP4029 (thumb)">
     </div>
   </div>
 
-  <!-- Techniques de l'Ingénieur SE8260 -->
+  <!-- SE8260 -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="SE8260 figures">
       <a href="#img-se8260-1" title="SE8260 full">
         <img src="/images/papers/PS01.jpg" alt="SE8260 (full)" loading="lazy"
              onerror="this.closest('a').style.display='none';">
       </a>
-
     </div>
 
     <div class="pub-meta">
@@ -686,25 +665,16 @@ details{ margin:8px 0; }
     </div>
   </article>
 
-  <!-- Lightboxes: SE8260 -->
   <div id="img-se8260-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="SE8260 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/ti_se8260_full.png" alt="SE8260 (full)">
     </div>
   </div>
-  <div id="img-se8260-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
-    <div class="lightbox__content" role="dialog" aria-label="SE8260 figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
-      <img src="/images/papers/ti_se8260_thumb.png" alt="SE8260 (thumb)">
-    </div>
-  </div>
 
-  <!-- Techniques de l'Ingénieur SE1221 -->
+  <!-- SE1221 -->
   <article class="pub-card">
-
     <div class="pub-thumbs" aria-label="SE1221 figures">
       <a href="#img-se1221-1" title="SE1221 full">
         <img src="/images/papers/MJ01.jpg" alt="SE1221 (full)" loading="lazy"
@@ -736,15 +706,13 @@ details{ margin:8px 0; }
     </div>
   </article>
 
-  <!-- Lightboxes: SE1221 -->
   <div id="img-se1221-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
     <div class="lightbox__content" role="dialog" aria-label="SE1221 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
       <img src="/images/papers/MJ01.jpg" alt="SE1221 (full)">
     </div>
   </div>
-
 
 </div>
 
@@ -761,23 +729,27 @@ details{ margin:8px 0; }
     document.querySelectorAll(".lightbox.is-open").forEach(lb => lb.classList.remove("is-open"));
   }
 
-  // OUVRIR: empêche le #hash => plus de scroll automatique
+  // OPEN (capture + stopImmediatePropagation to beat theme scripts)
   document.addEventListener("click", (e) => {
     const a = e.target.closest('.pub-thumbs a[href^="#img-"]');
     if (!a) return;
     e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     openLightbox(a.getAttribute("href"));
-  });
+  }, true);
 
-  // FERMER: backdrop ou bouton close
+  // CLOSE (backdrop or X)
   document.addEventListener("click", (e) => {
     if (e.target.closest(".lightbox__backdrop") || e.target.closest(".lightbox__close")) {
       e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       closeLightboxes();
     }
-  });
+  }, true);
 
-  // ESC pour fermer
+  // ESC to close
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeLightboxes();
   });
