@@ -4,17 +4,6 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-<script>
-document.addEventListener("click", (e) => {
-  const a = e.target.closest('.pub-thumbs a[href^="#"]');
-  if (!a) return;
-
-  const y = window.scrollY;              // position actuelle
-  // on laisse le navigateur changer le hash (donc :target fonctionne)
-  setTimeout(() => window.scrollTo(0, y), 0);  // on restaure le scroll
-});
-</script>
-
 
 <style>
 /* --- Layout sections --- */
@@ -758,3 +747,13 @@ details{ margin:8px 0; }
 
 
 </div>
+
+
+<script>
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('.pub-thumbs a[href^="#"]');
+  if (!a) return;
+  const y = window.scrollY;
+  requestAnimationFrame(() => window.scrollTo(0, y));
+});
+</script>
