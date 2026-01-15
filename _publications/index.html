@@ -137,6 +137,28 @@ details{ margin:8px 0; }
 
 
 
+/* Force taille des thumbnails (surpasse le thème) */
+.pub-thumbs img{
+  width: 90px !important;
+  height: 60px !important;
+  max-width: none !important;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.18);
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+
+.pub-thumbs{
+  display: flex;
+  gap: 10px;
+}
+
+.pub-thumbs a{
+  flex: 0 0 auto;
+  line-height: 0;
+  cursor: pointer;
+}
 
 
   
