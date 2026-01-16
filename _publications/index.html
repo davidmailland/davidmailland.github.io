@@ -61,9 +61,15 @@ details{ margin:8px 0; }
   z-index: 5;
 }
 
-.pub-thumbs a,
-.pub-thumbs img{
+/* thumbs are buttons (no href => no scroll jump) */
+.pub-thumbs .thumb{
+  border: 0;
+  padding: 0;
+  background: transparent;
+  line-height: 0;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .pub-thumbs img{
@@ -71,15 +77,10 @@ details{ margin:8px 0; }
   height: 60px !important;
   max-width: none !important;
   object-fit: cover;
-  display: block; /* supprime les bizarreries inline/baseline */
+  display: block; /* avoids inline/baseline weirdness */
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,.18);
   box-shadow: 0 2px 10px rgba(0,0,0,.12);
-}
-
-.pub-thumbs a{
-  flex: 0 0 auto;
-  line-height: 0;
 }
 
 /* --- Lightbox (JS controlled, NO HASH => no scroll jump) --- */
@@ -91,10 +92,16 @@ details{ margin:8px 0; }
 }
 .lightbox.is-open{ display:block; }
 
+/* backdrop is a button too */
 .lightbox__backdrop{
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,.66);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .lightbox__content{
@@ -116,6 +123,7 @@ details{ margin:8px 0; }
   border-radius: 12px;
 }
 
+/* close is a button too */
 .lightbox__close{
   position: absolute;
   top: 8px;
@@ -124,12 +132,14 @@ details{ margin:8px 0; }
   height: 34px;
   display: grid;
   place-items: center;
-  text-decoration: none;
   border-radius: 999px;
   border: 1px solid rgba(0,0,0,.18);
   background: rgba(255,255,255,.92);
   color: rgba(0,0,0,.85);
   font-weight: 700;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 /* Responsive: thumbs under text */
@@ -158,12 +168,12 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="Fibonacci figures">
-      <a href="#" data-target="#img-fibo-1" title="Petri net structure">
+      <button type="button" class="thumb" data-target="#img-fibo-1" title="Petri net structure" aria-label="Open Fibonacci figure 1">
         <img src="/images/papers/Fibo01.png" alt="Fibonacci Petri net structure" loading="lazy">
-      </a>
-      <a href="#" data-target="#img-fibo-2" title="Modular / fractal view">
+      </button>
+      <button type="button" class="thumb" data-target="#img-fibo-2" title="Modular / fractal view" aria-label="Open Fibonacci figure 2">
         <img src="/images/papers/Fibo02.png" alt="Fibonacci modular/fractal figure" loading="lazy">
-      </a>
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -193,16 +203,16 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: Fibonacci -->
   <div id="img-fibo-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Fibonacci figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Fibo01.png" alt="Fibonacci Petri net structure">
     </div>
   </div>
   <div id="img-fibo-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Fibonacci figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Fibo02.png" alt="Fibonacci modular/fractal figure">
     </div>
   </div>
@@ -211,15 +221,15 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="Pascal figures">
-      <a href="#" data-target="#img-pascal-1" title="Fractal view">
+      <button type="button" class="thumb" data-target="#img-pascal-1" title="Fractal view" aria-label="Open Pascal figure 1">
         <img src="/images/papers/Pascal3.png" alt="Pascal fractal figure" loading="lazy">
-      </a>
-      <a href="#" data-target="#img-pascal-2" title="Petri net structure">
+      </button>
+      <button type="button" class="thumb" data-target="#img-pascal-2" title="Petri net structure" aria-label="Open Pascal figure 2">
         <img src="/images/papers/Pascal1.png" alt="Pascal Petri net structure" loading="lazy">
-      </a>
-      <a href="#" data-target="#img-pascal-3" title="Parity marking">
+      </button>
+      <button type="button" class="thumb" data-target="#img-pascal-3" title="Parity marking" aria-label="Open Pascal figure 3">
         <img src="/images/papers/Pascal2.png" alt="Pascal parity marking" loading="lazy">
-      </a>
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -248,23 +258,23 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: Pascal -->
   <div id="img-pascal-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Pascal figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Pascal3.png" alt="Pascal fractal figure">
     </div>
   </div>
   <div id="img-pascal-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Pascal figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Pascal1.png" alt="Pascal Petri net structure">
     </div>
   </div>
   <div id="img-pascal-3" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Pascal figure 3">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Pascal2.png" alt="Pascal parity marking">
     </div>
   </div>
@@ -273,14 +283,14 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="Collatz figures">
-      <a href="#" data-target="#img-collatz-1" title="Collatz figure 1">
-        <img src="/images/papers/Collatz1.png" alt="Collatz figure 1" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
-      <a href="#" data-target="#img-collatz-2" title="Collatz figure 2">
+      <button type="button" class="thumb" data-target="#img-collatz-1" title="Collatz figure 1" aria-label="Open Collatz figure 1"
+              onerror="this.closest('.thumb').style.display='none';">
+        <img src="/images/papers/Collatz1.png" alt="Collatz figure 1" loading="lazy">
+      </button>
+      <button type="button" class="thumb" data-target="#img-collatz-2" title="Collatz figure 2" aria-label="Open Collatz figure 2">
         <img src="/images/papers/Collatz2.png" alt="Collatz figure 2" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -310,16 +320,16 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: Collatz -->
   <div id="img-collatz-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Collatz figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Collatz1.png" alt="Collatz figure 1">
     </div>
   </div>
   <div id="img-collatz-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Collatz figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Collatz2.png" alt="Collatz figure 2">
     </div>
   </div>
@@ -328,14 +338,14 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="HMI figures">
-      <a href="#" data-target="#img-ux-1" title="UX figure 1">
+      <button type="button" class="thumb" data-target="#img-ux-1" title="UX figure 1" aria-label="Open UX figure 1">
         <img src="/images/papers/UX1.png" alt="Automotive HMI / UX figure 1" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
-      <a href="#" data-target="#img-ux-2" title="UX figure 2">
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
+      <button type="button" class="thumb" data-target="#img-ux-2" title="UX figure 2" aria-label="Open UX figure 2">
         <img src="/images/papers/UX2.png" alt="Automotive HMI / UX figure 2" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -364,16 +374,16 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: UX -->
   <div id="img-ux-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="UX figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/UX1.png" alt="Automotive HMI / UX figure 1">
     </div>
   </div>
   <div id="img-ux-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="UX figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/UX2.png" alt="Automotive HMI / UX figure 2">
     </div>
   </div>
@@ -382,14 +392,14 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="IMBSA figures">
-      <a href="#" data-target="#img-imbsa-1" title="Capella/Arcadia to FTA">
+      <button type="button" class="thumb" data-target="#img-imbsa-1" title="Capella/Arcadia to FTA" aria-label="Open IMBSA figure 1">
         <img src="/images/papers/iMBSA-01.jpg" alt="IMBSA figure 1: Capella/Arcadia to FTA" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
-      <a href="#" data-target="#img-imbsa-2" title="Fault tree (detailed)">
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
+      <button type="button" class="thumb" data-target="#img-imbsa-2" title="Fault tree (detailed)" aria-label="Open IMBSA figure 2">
         <img src="/images/papers/iMBSA-02.jpg" alt="IMBSA figure 2: fault tree" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -418,16 +428,16 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: IMBSA -->
   <div id="img-imbsa-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="IMBSA figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/iMBSA-01.jpg" alt="IMBSA figure 1: Capella/Arcadia to FTA">
     </div>
   </div>
   <div id="img-imbsa-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="IMBSA figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/iMBSA-02.jpg" alt="IMBSA figure 2: fault tree">
     </div>
   </div>
@@ -444,18 +454,18 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="Lambda-Mu 22 figures">
-      <a href="#" data-target="#img-lambdamu22-1" title="LM22 full">
+      <button type="button" class="thumb" data-target="#img-lambdamu22-1" title="LM22 full" aria-label="Open Lambda-Mu 22 figure 1">
         <img src="/images/papers/LM22-01.jpg" alt="Lambda-Mu 22 (full)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
-      <a href="#" data-target="#img-lambdamu22-2" title="LM22 thumb">
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
+      <button type="button" class="thumb" data-target="#img-lambdamu22-2" title="LM22 thumb" aria-label="Open Lambda-Mu 22 figure 2">
         <img src="/images/papers/LM22-02.jpg" alt="Lambda-Mu 22 (thumb)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
-      <a href="#" data-target="#img-lambdamu22-3" title="LM22 thumb">
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
+      <button type="button" class="thumb" data-target="#img-lambdamu22-3" title="LM22 thumb" aria-label="Open Lambda-Mu 22 figure 3">
         <img src="/images/papers/LM22-03.jpg" alt="Lambda-Mu 22 (thumb)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -485,23 +495,23 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: Lambda-Mu 22 -->
   <div id="img-lambdamu22-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 22 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/LM22-01.jpg" alt="Lambda-Mu 22 (full)">
     </div>
   </div>
   <div id="img-lambdamu22-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 22 figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/LM22-02.jpg" alt="Lambda-Mu 22 (thumb)">
     </div>
   </div>
   <div id="img-lambdamu22-3" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 22 figure 3">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/LM22-03.jpg" alt="Lambda-Mu 22 (thumb)">
     </div>
   </div>
@@ -510,10 +520,10 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="Lambda-Mu 21 figures">
-      <a href="#" data-target="#img-lambdamu21-1" title="LM21 full">
+      <button type="button" class="thumb" data-target="#img-lambdamu21-1" title="LM21 full" aria-label="Open Lambda-Mu 21 figure 1">
         <img src="/images/papers/Exp01.png" alt="Lambda-Mu 21 (full)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -542,9 +552,9 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: Lambda-Mu 21 -->
   <div id="img-lambdamu21-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="Lambda-Mu 21 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Exp01.png" alt="Lambda-Mu 21 (full)">
     </div>
   </div>
@@ -561,10 +571,10 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="RE451 figures">
-      <a href="#" data-target="#img-re451-1" title="RE451 full">
+      <button type="button" class="thumb" data-target="#img-re451-1" title="RE451 full" aria-label="Open RE451 figure 1">
         <img src="/images/papers/BSG01.png" alt="RE451 (full)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -593,9 +603,9 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: RE451 -->
   <div id="img-re451-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="RE451 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/BSG01.png" alt="RE451 (full)">
     </div>
   </div>
@@ -604,14 +614,14 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="TRP4029 figures">
-      <a href="#" data-target="#img-trp4029-1" title="TRP4029 full">
+      <button type="button" class="thumb" data-target="#img-trp4029-1" title="TRP4029 full" aria-label="Open TRP4029 figure 1">
         <img src="/images/papers/Drone01.jpg" alt="TRP4029 (full)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
-      <a href="#" data-target="#img-trp4029-2" title="TRP4029 thumb">
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
+      <button type="button" class="thumb" data-target="#img-trp4029-2" title="TRP4029 thumb" aria-label="Open TRP4029 figure 2">
         <img src="/images/papers/Drone02.png" alt="TRP4029 (thumb)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -639,16 +649,16 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: TRP4029 -->
   <div id="img-trp4029-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="TRP4029 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Drone01.jpg" alt="TRP4029 (full)">
     </div>
   </div>
   <div id="img-trp4029-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="TRP4029 figure 2">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/Drone02.png" alt="TRP4029 (thumb)">
     </div>
   </div>
@@ -657,10 +667,10 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="SE8260 figures">
-      <a href="#" data-target="#img-se8260-1" title="SE8260 full">
+      <button type="button" class="thumb" data-target="#img-se8260-1" title="SE8260 full" aria-label="Open SE8260 figure 1">
         <img src="/images/papers/PS01.jpg" alt="SE8260 (full)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -689,9 +699,9 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: SE8260 -->
   <div id="img-se8260-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="SE8260 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/PS01.jpg" alt="SE8260 (full)">
     </div>
   </div>
@@ -700,10 +710,10 @@ details{ margin:8px 0; }
   <article class="pub-card">
 
     <div class="pub-thumbs" aria-label="SE1221 figures">
-      <a href="#" data-target="#img-se1221-1" title="SE1221 full">
+      <button type="button" class="thumb" data-target="#img-se1221-1" title="SE1221 full" aria-label="Open SE1221 figure 1">
         <img src="/images/papers/MJ01.jpg" alt="SE1221 (full)" loading="lazy"
-             onerror="this.closest('a').style.display='none';">
-      </a>
+             onerror="this.closest('.thumb').style.display='none';">
+      </button>
     </div>
 
     <div class="pub-meta">
@@ -732,9 +742,9 @@ details{ margin:8px 0; }
 
   <!-- Lightboxes: SE1221 -->
   <div id="img-se1221-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="#"></a>
+    <button type="button" class="lightbox__backdrop" aria-label="Close"></button>
     <div class="lightbox__content" role="dialog" aria-label="SE1221 figure 1">
-      <a class="lightbox__close" href="#" aria-label="Close">✕</a>
+      <button type="button" class="lightbox__close" aria-label="Close">✕</button>
       <img src="/images/papers/MJ01.jpg" alt="SE1221 (full)">
     </div>
   </div>
@@ -746,8 +756,11 @@ details{ margin:8px 0; }
   function openLightbox(sel) {
     const lb = document.querySelector(sel);
     if (!lb) return;
+    // close any already open
+    document.querySelectorAll(".lightbox.is-open").forEach(x => x.classList.remove("is-open"));
+
     lb.classList.add("is-open");
-    document.documentElement.style.overflow = "hidden"; // bloque scroll derrière
+    document.documentElement.style.overflow = "hidden"; // block background scroll
   }
 
   function closeLightboxes() {
@@ -755,23 +768,25 @@ details{ margin:8px 0; }
     document.documentElement.style.overflow = "";
   }
 
-  // OUVRIR depuis les thumbs (NO HASH => pas de remontée)
+  // OPEN from thumbs (capture + stopImmediatePropagation => beats theme scripts)
   document.addEventListener("click", (e) => {
-    const a = e.target.closest('.pub-thumbs a[data-target]');
-    if (!a) return;
+    const btn = e.target.closest('.pub-thumbs .thumb[data-target]');
+    if (!btn) return;
     e.preventDefault();
-    openLightbox(a.getAttribute("data-target"));
-  });
+    e.stopImmediatePropagation();
+    openLightbox(btn.getAttribute("data-target"));
+  }, true);
 
-  // FERMER: backdrop ou bouton close
+  // CLOSE: backdrop or close button
   document.addEventListener("click", (e) => {
     if (e.target.closest(".lightbox__backdrop") || e.target.closest(".lightbox__close")) {
       e.preventDefault();
+      e.stopImmediatePropagation();
       closeLightboxes();
     }
-  });
+  }, true);
 
-  // ESC pour fermer
+  // ESC to close
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeLightboxes();
   });
