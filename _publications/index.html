@@ -20,7 +20,7 @@ author_profile: true
   display: flow-root;
 }
 
-.pub-meta{ padding-right: 0; } /* IMPORTANT: no permanent right gap */
+.pub-meta{ padding-right: 0; }
 .pub-meta h3{ margin:0 0 6px 0; font-size:1.05rem; }
 .pub-venue{ margin:0 0 8px 0; opacity:.85; }
 .pub-abstract{ margin:0 0 10px 0; }
@@ -36,7 +36,6 @@ author_profile: true
   font-size:0.95em;
 }
 .pub-links .btn:hover{ border-color: rgba(0,0,0,.45); }
-
 details{ margin:8px 0; }
 
 /* --- Thumbs --- */
@@ -50,13 +49,7 @@ details{ margin:8px 0; }
   z-index: 5;
 }
 
-.pub-thumbs a{
-  flex: 0 0 auto;
-  line-height: 0;
-  cursor: pointer;
-  display: block;
-}
-
+.pub-thumbs a{ display:block; line-height:0; cursor:pointer; }
 .pub-thumbs img{
   width: 90px !important;
   height: 60px !important;
@@ -66,29 +59,32 @@ details{ margin:8px 0; }
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,.18);
   box-shadow: 0 2px 10px rgba(0,0,0,.12);
-  cursor: pointer;
+  cursor:pointer;
 }
 
-/* --- Lightbox --- */
-.lightbox{
+/* Responsive: thumbs under text */
+@media (max-width: 820px){
+  .pub-thumbs{ float:none; margin:10px 0 0 0; }
+}
+
+/* =========================
+   SINGLE MODAL (no hash)
+   ========================= */
+.pubs-modal{
   position: fixed;
   inset: 0;
   display: none;
   z-index: 9999;
 }
+.pubs-modal.is-open{ display:block; }
 
-/* IMPORTANT: force override du thème */
-.lightbox.is-open{
-  display:block !important;
-}
-
-.lightbox__backdrop{
-  position: absolute;
-  inset: 0;
+.pubs-modal__backdrop{
+  position:absolute;
+  inset:0;
   background: rgba(0,0,0,.66);
 }
 
-.lightbox__content{
+.pubs-modal__content{
   position: relative;
   max-width: min(1100px, 92vw);
   max-height: 86vh;
@@ -99,29 +95,36 @@ details{ margin:8px 0; }
   box-shadow: 0 18px 60px rgba(0,0,0,.35);
 }
 
-.lightbox__content img{
+.pubs-modal__img{
   width: 100%;
   height: auto;
-  max-height: calc(86vh - 24px);
+  max-height: calc(86vh - 70px);
   object-fit: contain;
   border-radius: 12px;
+  display:block;
 }
 
-.lightbox__close{
-  position: absolute;
+.pubs-modal__caption{
+  margin-top: 10px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.pubs-modal__close{
+  position:absolute;
   top: 8px;
   right: 10px;
   width: 34px;
   height: 34px;
-  display: grid;
-  place-items: center;
-  text-decoration: none;
+  display:grid;
+  place-items:center;
   border-radius: 999px;
   border: 1px solid rgba(0,0,0,.18);
   background: rgba(255,255,255,.92);
   color: rgba(0,0,0,.85);
   font-weight: 700;
-  cursor: pointer;
+  cursor:pointer;
+  user-select:none;
 }
 </style>
 
@@ -140,10 +143,10 @@ details{ margin:8px 0; }
 
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="Fibonacci figures">
-      <a href="#img-fibo-1" title="Petri net structure">
+      <a href="#" data-full="/images/papers/Fibo01.png" data-caption="Fibonacci Petri net structure" title="Petri net structure">
         <img src="/images/papers/Fibo01.png" alt="Fibonacci Petri net structure" loading="lazy">
       </a>
-      <a href="#img-fibo-2" title="Modular / fractal view">
+      <a href="#" data-full="/images/papers/Fibo02.png" data-caption="Fibonacci modular/fractal figure" title="Modular / fractal view">
         <img src="/images/papers/Fibo02.png" alt="Fibonacci modular/fractal figure" loading="lazy">
       </a>
     </div>
@@ -151,55 +154,33 @@ details{ margin:8px 0; }
     <div class="pub-meta">
       <h3>From Mathematics to Art: Modelling the Fibonacci Sequence with Petri Nets</h3>
       <p class="pub-venue">Published in <em>Fractal and Fractional</em>, 10(1), 53</p>
-
       <p class="pub-abstract">
         We propose a Petri-net-based modelling of the Fibonacci recurrence, bridging discrete mathematics and formal modelling.
         The approach supports structural insights and visually interpretable representations.
       </p>
-
       <p class="pub-links">
         <a class="btn" href="https://www.mdpi.com/2504-3110/10/1/53" target="_blank" rel="noopener">MDPI</a>
       </p>
-
       <details>
         <summary>Recommended citation</summary>
         <p>
           Mailland, D.; Grobelna, I. (Year).
           <em>From Mathematics to Art: Modelling the Fibonacci Sequence with Petri Nets</em>.
           Fractal and Fractional, 10(1), 53.
-          Available at: https://www.mdpi.com/2504-3110/10/1/53
         </p>
       </details>
     </div>
   </article>
 
-  <!-- Lightboxes: Fibonacci -->
-  <div id="img-fibo-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
-    <div class="lightbox__content" role="dialog" aria-label="Fibonacci figure 1">
-      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
-      <img src="/images/papers/Fibo01.png" alt="Fibonacci Petri net structure">
-    </div>
-  </div>
-
-  <div id="img-fibo-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
-    <div class="lightbox__content" role="dialog" aria-label="Fibonacci figure 2">
-      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
-      <img src="/images/papers/Fibo02.png" alt="Fibonacci modular/fractal figure">
-    </div>
-  </div>
-
-  <!-- ===== Symmetry (Pascal, 2025) ===== -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="Pascal figures">
-      <a href="#img-pascal-1" title="Fractal view">
+      <a href="#" data-full="/images/papers/Pascal3.png" data-caption="Pascal fractal figure" title="Fractal view">
         <img src="/images/papers/Pascal3.png" alt="Pascal fractal figure" loading="lazy">
       </a>
-      <a href="#img-pascal-2" title="Petri net structure">
+      <a href="#" data-full="/images/papers/Pascal1.png" data-caption="Pascal Petri net structure" title="Petri net structure">
         <img src="/images/papers/Pascal1.png" alt="Pascal Petri net structure" loading="lazy">
       </a>
-      <a href="#img-pascal-3" title="Parity marking">
+      <a href="#" data-full="/images/papers/Pascal2.png" data-caption="Pascal parity marking" title="Parity marking">
         <img src="/images/papers/Pascal2.png" alt="Pascal parity marking" loading="lazy">
       </a>
     </div>
@@ -207,105 +188,275 @@ details{ margin:8px 0; }
     <div class="pub-meta">
       <h3>From Mathematics to Art: Modelling the Pascal’s Triangle with Petri Nets</h3>
       <p class="pub-venue">Published in <em>Symmetry</em> (Special Issue), 2025</p>
-
       <p class="pub-abstract">
         We propose a Petri-net-based modelling of Pascal’s triangle, bridging discrete mathematics and formal modelling.
-        The approach supports structural insights and visually interpretable representations.
       </p>
-
       <p class="pub-links">
         <a class="btn" href="https://doi.org/10.3390/sym17122181" target="_blank" rel="noopener">MDPI</a>
       </p>
-
       <details>
         <summary>Recommended citation</summary>
         <p>
           Mailland, D.; Grobelna, I. (2025).
           <em>From Mathematics to Art: Modelling the Pascal's Triangle with Petri Nets</em>.
-          Symmetry, 17(12), 2181. DOI: 10.3390/sym17122181
+          Symmetry, 17(12), 2181.
         </p>
       </details>
     </div>
   </article>
 
-  <!-- Lightboxes: Pascal -->
-  <div id="img-pascal-1" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
-    <div class="lightbox__content" role="dialog" aria-label="Pascal figure 1">
-      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
-      <img src="/images/papers/Pascal3.png" alt="Pascal fractal figure">
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="Collatz figures">
+      <a href="#" data-full="/images/papers/Collatz1.png" data-caption="Collatz figure 1" title="Collatz figure 1">
+        <img src="/images/papers/Collatz1.png" alt="Collatz figure 1" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+      <a href="#" data-full="/images/papers/Collatz2.png" data-caption="Collatz figure 2" title="Collatz figure 2">
+        <img src="/images/papers/Collatz2.png" alt="Collatz figure 2" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
     </div>
-  </div>
-  <div id="img-pascal-2" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
-    <div class="lightbox__content" role="dialog" aria-label="Pascal figure 2">
-      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
-      <img src="/images/papers/Pascal1.png" alt="Pascal Petri net structure">
-    </div>
-  </div>
-  <div id="img-pascal-3" class="lightbox" aria-hidden="true">
-    <a class="lightbox__backdrop" href="javascript:void(0)"></a>
-    <div class="lightbox__content" role="dialog" aria-label="Pascal figure 3">
-      <a class="lightbox__close" href="javascript:void(0)" aria-label="Close">✕</a>
-      <img src="/images/papers/Pascal2.png" alt="Pascal parity marking">
-    </div>
-  </div>
 
-  <!-- (… laisse le reste de tes articles + lightboxes exactement comme tu les as,
-       juste pense à remplacer les href="#" dans les lightboxes par javascript:void(0)
-       comme ci-dessus.) -->
+    <div class="pub-meta">
+      <h3>A Novel Approach to the Collatz Conjecture with Petri Nets</h3>
+      <p class="pub-venue">Published in <em>Information</em> (MDPI), 2025</p>
+      <p class="pub-abstract">
+        We propose a Petri-net-based modelling of the inverse dynamics of the Collatz conjecture.
+      </p>
+      <p class="pub-links">
+        <a class="btn" href="https://doi.org/10.3390/info16090745" target="_blank" rel="noopener">MDPI</a>
+      </p>
+    </div>
+  </article>
 
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="HMI figures">
+      <a href="#" data-full="/images/papers/UX1.png" data-caption="Automotive HMI / UX figure 1" title="UX figure 1">
+        <img src="/images/papers/UX1.png" alt="Automotive HMI / UX figure 1" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+      <a href="#" data-full="/images/papers/UX2.png" data-caption="Automotive HMI / UX figure 2" title="UX figure 2">
+        <img src="/images/papers/UX2.png" alt="Automotive HMI / UX figure 2" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
+
+    <div class="pub-meta">
+      <h3>Design of Automotive HMI: New Challenges in Enhancing User Experience, Safety, and Security</h3>
+      <p class="pub-venue">Published in <em>Applied Sciences</em> (MDPI), 2025</p>
+      <p class="pub-links">
+        <a class="btn" href="https://doi.org/10.3390/app15105572" target="_blank" rel="noopener">MDPI</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="IMBSA figures">
+      <a href="#" data-full="/images/papers/iMBSA-01.jpg" data-caption="IMBSA figure 1: Capella/Arcadia to FTA" title="Capella/Arcadia to FTA">
+        <img src="/images/papers/iMBSA-01.jpg" alt="IMBSA figure 1: Capella/Arcadia to FTA" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+      <a href="#" data-full="/images/papers/iMBSA-02.jpg" data-caption="IMBSA figure 2: fault tree" title="Fault tree (detailed)">
+        <img src="/images/papers/iMBSA-02.jpg" alt="IMBSA figure 2: fault tree" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
+
+    <div class="pub-meta">
+      <h3>Model Based Approach for RAMS Analyses in the Space Domain with Capella Open-Source Tool</h3>
+      <p class="pub-venue">Published in IMBSA 2019</p>
+      <p class="pub-links">
+        <a class="btn" href="https://doi.org/10.1007/978-3-030-32872-6_2" target="_blank" rel="noopener">SPRINGER</a>
+      </p>
+    </div>
+  </article>
+</div>
+
+<!-- ========================= -->
+<!-- CONFERENCE PAPERS (FR) -->
+<!-- ========================= -->
+<div class="pub-section">
+  <h2>Conference papers (in French)</h2>
+
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="Lambda-Mu 22 figures">
+      <a href="#" data-full="/images/papers/LM22-01.jpg" data-caption="Lambda-Mu 22 (full)" title="LM22 full">
+        <img src="/images/papers/LM22-01.jpg" alt="Lambda-Mu 22 (full)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+      <a href="#" data-full="/images/papers/LM22-02.jpg" data-caption="Lambda-Mu 22 (thumb)" title="LM22 thumb">
+        <img src="/images/papers/LM22-02.jpg" alt="Lambda-Mu 22 (thumb)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+      <a href="#" data-full="/images/papers/LM22-03.jpg" data-caption="Lambda-Mu 22 (thumb)" title="LM22 thumb">
+        <img src="/images/papers/LM22-03.jpg" alt="Lambda-Mu 22 (thumb)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
+
+    <div class="pub-meta">
+      <h3>Expérimentation de la méthodologie MBSA au domaine spatial</h3>
+      <p class="pub-venue">Published in Lambda-Mu 22 — 2020</p>
+      <p class="pub-links">
+        <a class="btn" href="https://hal.science/hal-03323802v1" target="_blank" rel="noopener">HAL</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="Lambda-Mu 21 figures">
+      <a href="#" data-full="/images/papers/Exp01.png" data-caption="Lambda-Mu 21 (full)" title="LM21 full">
+        <img src="/images/papers/Exp01.png" alt="Lambda-Mu 21 (full)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
+
+    <div class="pub-meta">
+      <h3>Comparaison de l’approche sécurité multi-domaine</h3>
+      <p class="pub-venue">Published in Lambda-Mu 21 — 2018</p>
+      <p class="pub-links">
+        <a class="btn" href="https://hal.science/hal-02071107" target="_blank" rel="noopener">HAL</a>
+      </p>
+    </div>
+  </article>
+</div>
+
+<!-- ========================= -->
+<!-- EARLY WORK (FR) -->
+<!-- ========================= -->
+<div class="pub-section">
+  <h2>Early work (in French)</h2>
+
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="RE451 figures">
+      <a href="#" data-full="/images/papers/BSG01.png" data-caption="RE451 (full)" title="RE451 full">
+        <img src="/images/papers/BSG01.png" alt="RE451 (full)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
+
+    <div class="pub-meta">
+      <h3>Évaluation de la fiabilité en fin de vie d’une constellation de satellites avec AltaRica 3.0</h3>
+      <p class="pub-venue">Published in Techniques de l’Ingénieur — 2023</p>
+      <p class="pub-links">
+        <a class="btn" href="https://doi.org/10.51257/a-v1-re451" target="_blank" rel="noopener">DOI</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="TRP4029 figures">
+      <a href="#" data-full="/images/papers/Drone01.jpg" data-caption="TRP4029 (full)" title="TRP4029 full">
+        <img src="/images/papers/Drone01.jpg" alt="TRP4029 (full)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+      <a href="#" data-full="/images/papers/Drone02.png" data-caption="TRP4029 (thumb)" title="TRP4029 thumb">
+        <img src="/images/papers/Drone02.png" alt="TRP4029 (thumb)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
+
+    <div class="pub-meta">
+      <h3>Analyse par arbre de défaillances appliquée à un drone autonome</h3>
+      <p class="pub-venue">Published in Techniques de l’Ingénieur — 2025</p>
+      <p class="pub-links">
+        <a class="btn" href="https://doi.org/10.51257/a-v1-trp4029" target="_blank" rel="noopener">DOI</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="SE8260 figures">
+      <a href="#" data-full="/images/papers/PS01.jpg" data-caption="SE8260 (full)" title="SE8260 full">
+        <img src="/images/papers/PS01.jpg" alt="SE8260 (full)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
+
+    <div class="pub-meta">
+      <h3>Expérimentation de la méthodologie MBSA par le langage AltaRica</h3>
+      <p class="pub-venue">Published in Techniques de l’Ingénieur — 2022</p>
+      <p class="pub-links">
+        <a class="btn" href="https://doi.org/10.51257/a-v1-se8260" target="_blank" rel="noopener">DOI</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="pub-card">
+    <div class="pub-thumbs" aria-label="SE1221 figures">
+      <a href="#" data-full="/images/papers/MJ01.jpg" data-caption="SE1221 (full)" title="SE1221 full">
+        <img src="/images/papers/MJ01.jpg" alt="SE1221 (full)" loading="lazy"
+             onerror="this.closest('a').style.display='none';">
+      </a>
+    </div>
+
+    <div class="pub-meta">
+      <h3>Modélisation des pannes d’une antenne active et modifications d’architecture</h3>
+      <p class="pub-venue">Published in Techniques de l’Ingénieur — 2021</p>
+      <p class="pub-links">
+        <a class="btn" href="https://doi.org/10.51257/a-v1-se1221" target="_blank" rel="noopener">DOI</a>
+      </p>
+    </div>
+  </article>
+</div>
+
+<!-- =========================
+     MODAL (one time)
+     ========================= -->
+<div class="pubs-modal" id="pubs-modal" aria-hidden="true">
+  <div class="pubs-modal__backdrop" data-close="1"></div>
+  <div class="pubs-modal__content" role="dialog" aria-label="Image preview">
+    <div class="pubs-modal__close" data-close="1" aria-label="Close">✕</div>
+    <img class="pubs-modal__img" id="pubs-modal-img" alt="">
+    <div class="pubs-modal__caption" id="pubs-modal-cap"></div>
+  </div>
 </div>
 
 <script>
 (() => {
-  const OPEN_SEL = '.pub-thumbs a[href^="#img-"]';
-  const CLOSE_SEL = '.lightbox__backdrop, .lightbox__close';
+  const modal = document.getElementById("pubs-modal");
+  const img = document.getElementById("pubs-modal-img");
+  const cap = document.getElementById("pubs-modal-cap");
 
-  function openLightboxByHash(hash) {
-    const lb = document.querySelector(hash);
-    if (!lb) return;
-    lb.classList.add("is-open");
+  function openModal(fullSrc, caption){
+    img.src = fullSrc;
+    img.alt = caption || "";
+    cap.textContent = caption || "";
+    modal.classList.add("is-open");
+    document.documentElement.style.overflow = "hidden";
   }
 
-  function closeAll() {
-    document.querySelectorAll(".lightbox.is-open").forEach(lb => lb.classList.remove("is-open"));
+  function closeModal(){
+    modal.classList.remove("is-open");
+    document.documentElement.style.overflow = "";
+    img.src = "";
+    img.alt = "";
+    cap.textContent = "";
   }
 
-  // Interception très tôt (capture=true) pour battre le thème
-  function onOpen(e) {
-    const a = e.target.closest(OPEN_SEL);
+  // CAPTURE: on bloque les handlers du theme avant qu'ils ne scrollent
+  document.addEventListener("pointerdown", (e) => {
+    const a = e.target.closest(".pub-thumbs a[data-full]");
     if (!a) return;
-
     e.preventDefault();
     e.stopPropagation();
     if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    openModal(a.dataset.full, a.dataset.caption);
+  }, true);
 
-    openLightboxByHash(a.getAttribute("href"));
-  }
-
-  // On intercepte pointerdown/mousedown/touchstart AVANT click
-  document.addEventListener("pointerdown", onOpen, true);
-  document.addEventListener("mousedown", onOpen, true);
-  document.addEventListener("touchstart", onOpen, true);
-  document.addEventListener("click", onOpen, true);
-
-  function onClose(e) {
-    const close = e.target.closest(CLOSE_SEL);
-    if (!close) return;
-
+  // Close (backdrop or X)
+  document.addEventListener("pointerdown", (e) => {
+    if (!modal.classList.contains("is-open")) return;
+    if (!e.target.closest('[data-close="1"]')) return;
     e.preventDefault();
     e.stopPropagation();
     if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    closeModal();
+  }, true);
 
-    closeAll();
-  }
-
-  document.addEventListener("pointerdown", onClose, true);
-  document.addEventListener("click", onClose, true);
-
+  // ESC
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAll();
+    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
   });
 })();
 </script>
