@@ -93,3 +93,67 @@ html { filter: none; }
 }
 
 
+/* =========================
+   CV page: stronger hierarchy
+   ========================= */
+
+.cv-page .page__content h2{
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.35rem;
+  font-weight: 750;
+  color: rgba(255,255,255,.92);
+  letter-spacing: .02em;
+}
+
+.cv-page .page__content h3{
+  margin-top: 1.1rem;
+  margin-bottom: 0.35rem;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+/* A thin divider after each role title */
+.cv-page .page__content h3::after{
+  content:"";
+  display:block;
+  width: 90px;
+  height: 2px;
+  margin-top: 8px;
+  background: rgba(255,255,255,.16);
+}
+
+/* The italic “company line” right under the role:
+   make it look like metadata */
+.cv-page .page__content h3 + p em{
+  font-style: italic;
+  color: rgba(255,255,255,.78);
+}
+
+/* Tighten paragraphs inside CV */
+.cv-page .page__content p{
+  margin: 0.35rem 0;
+  line-height: 1.5;
+  text-align: left;          /* CV is better left-aligned */
+  hyphens: none;
+}
+
+/* Make the date/location line (often the next paragraph) slightly muted */
+.cv-page .page__content h3 + p + p{
+  color: rgba(255,255,255,.82);
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Make HR separators thinner and more elegant */
+.cv-page .page__content hr{
+  border: 0;
+  height: 1px;
+  background: rgba(255,255,255,.12);
+  margin: 1.1rem 0;
+}
+
+
+
