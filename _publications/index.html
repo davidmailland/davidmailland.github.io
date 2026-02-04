@@ -1,4 +1,4 @@
----
+orn---
 layout: archive
 title: "Publications"
 permalink: /publications/
@@ -180,15 +180,22 @@ details{ margin:8px 0; }
 
 
 /* ===== Section banner: ornamental + compact ===== */
-.section-hero.ornamental{
-  position: relative;
-  margin: 6px 0 14px 0;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.10); /* mieux en dark */
-  background: rgba(255,255,255,.04);       /* mieux en dark */
-  overflow: hidden;
+.section-hero.ornamental.compact img{
+  width: min(1100px, 100%);
+  height: 72px;              /* hauteur réelle de l’enluminure */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  opacity: 1;
+  filter: none;
+  padding: 0;
 }
 
+  .section-hero.ornamental.compact{
+  height: 96px;              /* un peu plus grand que l’image */
+  display: grid;
+  place-items: center;
+}
 /* The key: fixed height + contain */
 .section-hero.ornamental.compact{
   height: 92px;                /* ajuste: 72–110px */
