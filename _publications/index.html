@@ -31,7 +31,7 @@ author_profile: true
   display: flow-root; /* clears floats */
 }
 
-.pub-meta{ padding-right: 0; } /* no permanent right gap */
+.pub-meta{ padding-right: 0; }
 .pub-meta h3{ margin:0 0 6px 0; font-size:1.05rem; }
 .pub-venue{ margin:0 0 8px 0; opacity:.85; }
 .pub-abstract{ margin:0 0 10px 0; }
@@ -50,7 +50,7 @@ author_profile: true
 
 details{ margin:8px 0; }
 
-/* --- Thumbs --- */
+/* --- Thumbs: improved look --- */
 .pub-thumbs{
   float: right;
   display: flex;
@@ -61,11 +61,7 @@ details{ margin:8px 0; }
   z-index: 5;
 }
 
-.pub-thumbs .thumb,
-.pub-thumbs .thumb img{
-  cursor: pointer;
-}
-
+/* Works for <button> OR <a> as a thumb wrapper */
 .pub-thumbs .thumb{
   padding:0;
   border:0;
@@ -74,17 +70,42 @@ details{ margin:8px 0; }
   -webkit-appearance: none;
   line-height: 0;
   flex: 0 0 auto;
+  display: inline-block; /* important if you ever switch to <a> */
+  cursor: pointer;
 }
 
+/* Give the image a consistent “card” feel */
 .pub-thumbs img{
-  width: 90px !important;
-  height: 60px !important;
+  /* Bigger thumbs (3:2 ratio) */
+  width: 120px !important;
+  height: 80px !important;
+
   max-width: none !important;
   object-fit: cover;
-  display: block; /* supprime les bizarreries inline/baseline */
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,.18);
-  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+
+  /* Default focus area (tweak per-image inline if needed) */
+  object-position: center 35%;
+
+  display: block; /* avoids baseline weirdness */
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.16);
+  box-shadow: 0 6px 18px rgba(0,0,0,.16);
+  transform: translateZ(0);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+.pub-thumbs .thumb:hover img{
+  transform: scale(1.03);
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+/* Responsive: thumbs under text */
+@media (max-width: 820px){
+  .pub-thumbs{
+    float: none;
+    margin: 10px 0 0 0;
+  }
 }
 
 /* --- Lightbox (one global, JS controlled, NO HASH) --- */
@@ -138,14 +159,6 @@ details{ margin:8px 0; }
   font-weight: 700;
   cursor: pointer;
 }
-
-/* Responsive: thumbs under text */
-@media (max-width: 820px){
-  .pub-thumbs{
-    float: none;
-    margin: 10px 0 0 0;
-  }
-}
 </style>
 
 <p class="pubs-intro">
@@ -164,17 +177,28 @@ details{ margin:8px 0; }
   <!-- ===== Fibonacci ===== -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="Fibonacci figures">
+      <!-- Thumb uses a dedicated, nicer thumbnail (webp) while lightbox opens full PNG -->
       <button type="button" class="thumb"
-              data-full="/images/papers/Fibo01.png"
+              data-full="{{ '/images/papers/Fibo01.png' | relative_url }}"
               data-alt="Fibonacci Petri net structure"
               title="Petri net structure">
-        <img src="/images/papers/Fibo01.png" alt="Fibonacci Petri net structure" loading="lazy">
+        <img
+          src="{{ '/images/papers/thumbs/Fibo01-thumb.webp' | relative_url }}"
+          alt="Fibonacci Petri net structure"
+          loading="lazy"
+          onerror="this.src='{{ '/images/papers/Fibo01.png' | relative_url }}';">
       </button>
+
       <button type="button" class="thumb"
-              data-full="/images/papers/Fibo02.png"
+              data-full="{{ '/images/papers/Fibo02.png' | relative_url }}"
               data-alt="Fibonacci modular/fractal figure"
               title="Modular / fractal view">
-        <img src="/images/papers/Fibo02.png" alt="Fibonacci modular/fractal figure" loading="lazy">
+        <img
+          src="{{ '/images/papers/thumbs/Fibo02-thumb.webp' | relative_url }}"
+          alt="Fibonacci modular/fractal figure"
+          loading="lazy"
+          style="object-position: 50% 25%;"  <!-- per-image tweak (optional) -->
+          onerror="this.src='{{ '/images/papers/Fibo02.png' | relative_url }}';">
       </button>
     </div>
 
@@ -206,14 +230,29 @@ details{ margin:8px 0; }
   <!-- ===== Pascal (Symmetry, 2025) ===== -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="Pascal figures">
-      <button type="button" class="thumb" data-full="/images/papers/Pascal3.png" data-alt="Pascal fractal figure" title="Fractal view">
-        <img src="/images/papers/Pascal3.png" alt="Pascal fractal figure" loading="lazy">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/Pascal3.png' | relative_url }}"
+              data-alt="Pascal fractal figure" title="Fractal view">
+        <img
+          src="{{ '/images/papers/thumbs/Pascal3-thumb.webp' | relative_url }}"
+          alt="Pascal fractal figure" loading="lazy"
+          onerror="this.src='{{ '/images/papers/Pascal3.png' | relative_url }}';">
       </button>
-      <button type="button" class="thumb" data-full="/images/papers/Pascal1.png" data-alt="Pascal Petri net structure" title="Petri net structure">
-        <img src="/images/papers/Pascal1.png" alt="Pascal Petri net structure" loading="lazy">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/Pascal1.png' | relative_url }}"
+              data-alt="Pascal Petri net structure" title="Petri net structure">
+        <img
+          src="{{ '/images/papers/thumbs/Pascal1-thumb.webp' | relative_url }}"
+          alt="Pascal Petri net structure" loading="lazy"
+          onerror="this.src='{{ '/images/papers/Pascal1.png' | relative_url }}';">
       </button>
-      <button type="button" class="thumb" data-full="/images/papers/Pascal2.png" data-alt="Pascal parity marking" title="Parity marking">
-        <img src="/images/papers/Pascal2.png" alt="Pascal parity marking" loading="lazy">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/Pascal2.png' | relative_url }}"
+              data-alt="Pascal parity marking" title="Parity marking">
+        <img
+          src="{{ '/images/papers/thumbs/Pascal2-thumb.webp' | relative_url }}"
+          alt="Pascal parity marking" loading="lazy"
+          onerror="this.src='{{ '/images/papers/Pascal2.png' | relative_url }}';">
       </button>
     </div>
 
@@ -244,13 +283,21 @@ details{ margin:8px 0; }
   <!-- ===== Collatz (Information, 2025) ===== -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="Collatz figures">
-      <button type="button" class="thumb" data-full="/images/papers/Collatz1.png" data-alt="Collatz figure 1" title="Collatz figure 1">
-        <img src="/images/papers/Collatz1.png" alt="Collatz figure 1" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/Collatz1.png' | relative_url }}"
+              data-alt="Collatz figure 1" title="Collatz figure 1">
+        <img
+          src="{{ '/images/papers/thumbs/Collatz1-thumb.webp' | relative_url }}"
+          alt="Collatz figure 1" loading="lazy"
+          onerror="this.src='{{ '/images/papers/Collatz1.png' | relative_url }}';">
       </button>
-      <button type="button" class="thumb" data-full="/images/papers/Collatz2.png" data-alt="Collatz figure 2" title="Collatz figure 2">
-        <img src="/images/papers/Collatz2.png" alt="Collatz figure 2" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/Collatz2.png' | relative_url }}"
+              data-alt="Collatz figure 2" title="Collatz figure 2">
+        <img
+          src="{{ '/images/papers/thumbs/Collatz2-thumb.webp' | relative_url }}"
+          alt="Collatz figure 2" loading="lazy"
+          onerror="this.src='{{ '/images/papers/Collatz2.png' | relative_url }}';">
       </button>
     </div>
 
@@ -282,13 +329,21 @@ details{ margin:8px 0; }
   <!-- ===== UX (Applied Sciences, 2025) ===== -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="HMI figures">
-      <button type="button" class="thumb" data-full="/images/papers/UX1.png" data-alt="Automotive HMI / UX figure 1" title="UX figure 1">
-        <img src="/images/papers/UX1.png" alt="Automotive HMI / UX figure 1" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/UX1.png' | relative_url }}"
+              data-alt="Automotive HMI / UX figure 1" title="UX figure 1">
+        <img
+          src="{{ '/images/papers/thumbs/UX1-thumb.webp' | relative_url }}"
+          alt="Automotive HMI / UX figure 1" loading="lazy"
+          onerror="this.src='{{ '/images/papers/UX1.png' | relative_url }}';">
       </button>
-      <button type="button" class="thumb" data-full="/images/papers/UX2.png" data-alt="Automotive HMI / UX figure 2" title="UX figure 2">
-        <img src="/images/papers/UX2.png" alt="Automotive HMI / UX figure 2" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/UX2.png' | relative_url }}"
+              data-alt="Automotive HMI / UX figure 2" title="UX figure 2">
+        <img
+          src="{{ '/images/papers/thumbs/UX2-thumb.webp' | relative_url }}"
+          alt="Automotive HMI / UX figure 2" loading="lazy"
+          onerror="this.src='{{ '/images/papers/UX2.png' | relative_url }}';">
       </button>
     </div>
 
@@ -319,13 +374,21 @@ details{ margin:8px 0; }
   <!-- ===== IMBSA 2019 ===== -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="IMBSA figures">
-      <button type="button" class="thumb" data-full="/images/papers/iMBSA-01.jpg" data-alt="IMBSA figure 1: Capella/Arcadia to FTA" title="Capella/Arcadia to FTA">
-        <img src="/images/papers/iMBSA-01.jpg" alt="IMBSA figure 1: Capella/Arcadia to FTA" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/iMBSA-01.jpg' | relative_url }}"
+              data-alt="IMBSA figure 1: Capella/Arcadia to FTA" title="Capella/Arcadia to FTA">
+        <img
+          src="{{ '/images/papers/thumbs/iMBSA-01-thumb.webp' | relative_url }}"
+          alt="IMBSA figure 1: Capella/Arcadia to FTA" loading="lazy"
+          onerror="this.src='{{ '/images/papers/iMBSA-01.jpg' | relative_url }}';">
       </button>
-      <button type="button" class="thumb" data-full="/images/papers/iMBSA-02.jpg" data-alt="IMBSA figure 2: fault tree" title="Fault tree (detailed)">
-        <img src="/images/papers/iMBSA-02.jpg" alt="IMBSA figure 2: fault tree" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/iMBSA-02.jpg' | relative_url }}"
+              data-alt="IMBSA figure 2: fault tree" title="Fault tree (detailed)">
+        <img
+          src="{{ '/images/papers/thumbs/iMBSA-02-thumb.webp' | relative_url }}"
+          alt="IMBSA figure 2: fault tree" loading="lazy"
+          onerror="this.src='{{ '/images/papers/iMBSA-02.jpg' | relative_url }}';">
       </button>
     </div>
 
@@ -364,17 +427,29 @@ details{ margin:8px 0; }
   <!-- Lambda-Mu 22 -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="Lambda-Mu 22 figures">
-      <button type="button" class="thumb" data-full="/images/papers/LM22-01.jpg" data-alt="Lambda-Mu 22 (full)" title="LM22 full">
-        <img src="/images/papers/LM22-01.jpg" alt="Lambda-Mu 22 (full)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/LM22-01.jpg' | relative_url }}"
+              data-alt="Lambda-Mu 22 (full)" title="LM22 full">
+        <img
+          src="{{ '/images/papers/thumbs/LM22-01-thumb.webp' | relative_url }}"
+          alt="Lambda-Mu 22 (full)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/LM22-01.jpg' | relative_url }}';">
       </button>
-      <button type="button" class="thumb" data-full="/images/papers/LM22-02.jpg" data-alt="Lambda-Mu 22 (thumb)" title="LM22 thumb">
-        <img src="/images/papers/LM22-02.jpg" alt="Lambda-Mu 22 (thumb)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/LM22-02.jpg' | relative_url }}"
+              data-alt="Lambda-Mu 22 (thumb)" title="LM22 thumb">
+        <img
+          src="{{ '/images/papers/thumbs/LM22-02-thumb.webp' | relative_url }}"
+          alt="Lambda-Mu 22 (thumb)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/LM22-02.jpg' | relative_url }}';">
       </button>
-      <button type="button" class="thumb" data-full="/images/papers/LM22-03.jpg" data-alt="Lambda-Mu 22 (thumb)" title="LM22 thumb">
-        <img src="/images/papers/LM22-03.jpg" alt="Lambda-Mu 22 (thumb)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/LM22-03.jpg' | relative_url }}"
+              data-alt="Lambda-Mu 22 (thumb)" title="LM22 thumb">
+        <img
+          src="{{ '/images/papers/thumbs/LM22-03-thumb.webp' | relative_url }}"
+          alt="Lambda-Mu 22 (thumb)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/LM22-03.jpg' | relative_url }}';">
       </button>
     </div>
 
@@ -406,9 +481,13 @@ details{ margin:8px 0; }
   <!-- Lambda-Mu 21 -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="Lambda-Mu 21 figures">
-      <button type="button" class="thumb" data-full="/images/papers/Exp01.png" data-alt="Lambda-Mu 21 (full)" title="LM21 full">
-        <img src="/images/papers/Exp01.png" alt="Lambda-Mu 21 (full)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/Exp01.png' | relative_url }}"
+              data-alt="Lambda-Mu 21 (full)" title="LM21 full">
+        <img
+          src="{{ '/images/papers/thumbs/Exp01-thumb.webp' | relative_url }}"
+          alt="Lambda-Mu 21 (full)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/Exp01.png' | relative_url }}';">
       </button>
     </div>
 
@@ -446,9 +525,13 @@ details{ margin:8px 0; }
   <!-- Techniques de l'Ingénieur RE451 -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="RE451 figures">
-      <button type="button" class="thumb" data-full="/images/papers/BSG01.png" data-alt="RE451 (full)" title="RE451 full">
-        <img src="/images/papers/BSG01.png" alt="RE451 (full)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/BSG01.png' | relative_url }}"
+              data-alt="RE451 (full)" title="RE451 full">
+        <img
+          src="{{ '/images/papers/thumbs/BSG01-thumb.webp' | relative_url }}"
+          alt="RE451 (full)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/BSG01.png' | relative_url }}';">
       </button>
     </div>
 
@@ -479,13 +562,21 @@ details{ margin:8px 0; }
   <!-- Techniques de l'Ingénieur TRP4029 -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="TRP4029 figures">
-      <button type="button" class="thumb" data-full="/images/papers/Drone01.jpg" data-alt="TRP4029 (full)" title="TRP4029 full">
-        <img src="/images/papers/Drone01.jpg" alt="TRP4029 (full)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/Drone01.jpg' | relative_url }}"
+              data-alt="TRP4029 (full)" title="TRP4029 full">
+        <img
+          src="{{ '/images/papers/thumbs/Drone01-thumb.webp' | relative_url }}"
+          alt="TRP4029 (full)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/Drone01.jpg' | relative_url }}';">
       </button>
-      <button type="button" class="thumb" data-full="/images/papers/Drone02.png" data-alt="TRP4029 (thumb)" title="TRP4029 thumb">
-        <img src="/images/papers/Drone02.png" alt="TRP4029 (thumb)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/Drone02.png' | relative_url }}"
+              data-alt="TRP4029 (thumb)" title="TRP4029 thumb">
+        <img
+          src="{{ '/images/papers/thumbs/Drone02-thumb.webp' | relative_url }}"
+          alt="TRP4029 (thumb)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/Drone02.png' | relative_url }}';">
       </button>
     </div>
 
@@ -515,9 +606,13 @@ details{ margin:8px 0; }
   <!-- Techniques de l'Ingénieur SE8260 -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="SE8260 figures">
-      <button type="button" class="thumb" data-full="/images/papers/PS01.jpg" data-alt="SE8260 (full)" title="SE8260 full">
-        <img src="/images/papers/PS01.jpg" alt="SE8260 (full)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/PS01.jpg' | relative_url }}"
+              data-alt="SE8260 (full)" title="SE8260 full">
+        <img
+          src="{{ '/images/papers/thumbs/PS01-thumb.webp' | relative_url }}"
+          alt="SE8260 (full)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/PS01.jpg' | relative_url }}';">
       </button>
     </div>
 
@@ -548,9 +643,13 @@ details{ margin:8px 0; }
   <!-- Techniques de l'Ingénieur SE1221 -->
   <article class="pub-card">
     <div class="pub-thumbs" aria-label="SE1221 figures">
-      <button type="button" class="thumb" data-full="/images/papers/MJ01.jpg" data-alt="SE1221 (full)" title="SE1221 full">
-        <img src="/images/papers/MJ01.jpg" alt="SE1221 (full)" loading="lazy"
-             onerror="this.closest('button').style.display='none';">
+      <button type="button" class="thumb"
+              data-full="{{ '/images/papers/MJ01.jpg' | relative_url }}"
+              data-alt="SE1221 (full)" title="SE1221 full">
+        <img
+          src="{{ '/images/papers/thumbs/MJ01-thumb.webp' | relative_url }}"
+          alt="SE1221 (full)" loading="lazy"
+          onerror="this.src='{{ '/images/papers/MJ01.jpg' | relative_url }}';">
       </button>
     </div>
 
@@ -594,7 +693,7 @@ details{ margin:8px 0; }
   const lb = document.getElementById("lb");
   const lbImg = document.getElementById("lbImg");
 
-  function open(src, alt) {
+  function openLightbox(src, alt) {
     if (!src) return;
     lbImg.src = src;
     lbImg.alt = alt || "";
@@ -603,7 +702,7 @@ details{ margin:8px 0; }
     document.documentElement.style.overflow = "hidden";
   }
 
-  function close() {
+  function closeLightbox() {
     lb.classList.remove("is-open");
     lb.setAttribute("aria-hidden", "true");
     document.documentElement.style.overflow = "";
@@ -611,27 +710,27 @@ details{ margin:8px 0; }
     lbImg.alt = "";
   }
 
-  // OPEN: capture phase + stopImmediatePropagation (beats theme handlers)
+  // OPEN (capture phase to beat theme handlers)
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".pub-thumbs .thumb[data-full]");
     if (!btn) return;
     e.preventDefault();
     e.stopImmediatePropagation();
-    open(btn.getAttribute("data-full"), btn.getAttribute("data-alt"));
+    openLightbox(btn.getAttribute("data-full"), btn.getAttribute("data-alt"));
   }, true);
 
-  // CLOSE: backdrop or close
+  // CLOSE (backdrop or close button)
   document.addEventListener("click", (e) => {
     if (e.target.closest("#lb .lightbox__backdrop") || e.target.closest("#lb .lightbox__close")) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      close();
+      closeLightbox();
     }
   }, true);
 
   // ESC
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
+    if (e.key === "Escape") closeLightbox();
   });
 })();
 </script>
