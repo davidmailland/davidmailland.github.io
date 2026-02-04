@@ -1,100 +1,11 @@
----
-layout: single
-title: "Curriculum Vitae"
-permalink: /cv/
-author_profile: true
-classes: cv-page
----
-
-<style>
-/* CV container */
-.cv-wrap{
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-/* Header */
-.cv-header{
-  margin: 10px 0 18px 0;
-}
-.cv-name{
-  margin: 0 0 4px 0;
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #fff;
-}
-.cv-tagline{
-  margin: 0;
-  opacity: .9;
-}
-
-/* Section title */
-.cv-section{
-  margin: 22px 0 10px 0;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,.12);
-}
-.cv-section h2{
-  margin: 0 0 12px 0;
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: rgba(255,255,255,.95);
-}
-
-/* Entries */
-.cv-entry{
-  padding: 14px 0 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.cv-entry:last-child{ border-bottom: 0; }
-
-.cv-role{
-  margin: 0 0 4px 0;
-  font-size: 1.12rem;
-  font-weight: 850;
-  color: #fff;
-}
-
-.cv-meta{
-  margin: 0 0 8px 0;
-  opacity: .88;
-}
-.cv-meta em{ font-style: italic; }
-
-.cv-dates{
-  margin: 0 0 10px 0;
-  opacity: .85;
-}
-
-.cv-bullets{
-  margin: 0;
-  padding-left: 18px;
-}
-.cv-bullets li{
-  margin: 6px 0;
-  line-height: 1.45;
-}
-
-/* Two-column meta (desktop) */
-@media (min-width: 900px){
-  .cv-row{
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 14px;
-    align-items: baseline;
-  }
-  .cv-dates{
-    text-align: right;
-    white-space: nowrap;
-  }
-}
-</style>
-
 <div class="cv-wrap">
 
   <header class="cv-header">
     <p class="cv-name">David Mailland</p>
-    <p class="cv-tagline">Independent researcher · Mathematics, reliability, discrete and formal models</p>
+    <p class="cv-tagline">
+      Independent researcher<br>
+      Mathematics, Safety &amp; Reliability, Discrete and Formal models
+    </p>
   </header>
 
   <section class="cv-section" id="experience">
@@ -117,25 +28,63 @@ classes: cv-page
         <p class="cv-role">Lecturer in Mathematics</p>
         <p class="cv-dates">2007–2021 · Toulouse, France</p>
       </div>
-      <p class="cv-meta"><em>University of Toulouse III — Paul Sabatier (UPSITECH engineering school)</em></p>
+      <p class="cv-meta"><em>University of Toulouse III – Paul Sabatier (UPSSITECH engineering school)</em></p>
       <ul class="cv-bullets">
         <li>Teaching applied mathematics and systems modelling for engineering students, with a focus on reliability and safety-related methods.</li>
       </ul>
     </article>
 
+    <article class="cv-entry">
+      <div class="cv-row">
+        <p class="cv-role">Safety Engineer</p>
+        <p class="cv-dates">2003–2007 · Toulouse, France</p>
+      </div>
+      <p class="cv-meta"><em>Airbus Protect</em></p>
+      <ul class="cv-bullets">
+        <li>Risk analysis and dependability studies on civil and military aircraft programmes.</li>
+      </ul>
+    </article>
+
+    <article class="cv-entry">
+      <div class="cv-row">
+        <p class="cv-role">Aircraft Performance Intern</p>
+        <p class="cv-dates">2001 · Toulouse, France</p>
+      </div>
+      <p class="cv-meta"><em>Airbus France</em></p>
+      <ul class="cv-bullets">
+        <li>Performance studies of aircraft operations on contaminated runways.</li>
+      </ul>
+    </article>
   </section>
 
-  <p style="text-align:center;">
-  <img src="{{ '/images/enluminures/Enluminure2.png' | relative_url }}" alt=""
-       style="max-width:720px; width:100%; height:auto;">
-</p>
-
-  <!-- Ajoute d’autres sections sur le même modèle -->
-  <!--
   <section class="cv-section" id="education">
     <h2>Education</h2>
-    ...
+
+    <article class="cv-entry">
+      <p class="cv-role">Master’s degree in Engineering (ISAE-SUPAERO / ENSICA)</p>
+      <p class="cv-dates">1999–2002 · Toulouse, France</p>
+    </article>
+
+    <article class="cv-entry">
+      <p class="cv-role">Visiting student, Fluid Mechanics Department</p>
+      <p class="cv-dates">2001 · Los Angeles, USA</p>
+      <p class="cv-meta"><em>University of Southern California</em></p>
+    </article>
   </section>
-  -->
+
+  <section class="cv-section" id="research">
+    <h2>Research interests</h2>
+    <p>
+      Discrete mathematics, Petri nets, reliability modelling, Markov chains,
+      and generative mathematical structures.
+    </p>
+  </section>
+
+  <section class="cv-section" id="tools">
+    <h2>Tools and methods</h2>
+    <p>
+      Petri nets · Markov chains · Fault Tree Analysis · Safety and reliability modelling · Python · LaTeX
+    </p>
+  </section>
 
 </div>
