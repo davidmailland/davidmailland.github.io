@@ -5,6 +5,28 @@ permalink: /visual/
 author_profile: true
 ---
 
+<style>
+.vs-figure{
+  margin: 18px 0 26px 0;
+}
+.vs-figure img{
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.16);
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+.vs-figure figcaption{
+  margin-top: 10px;
+  font-size: 0.95em;
+  opacity: 0.85;
+  text-align: center;
+}
+</style>
+
 <p>
 This page gathers visual explorations arising from mathematical structures.
 The emphasis is on representations that sit at the intersection of
@@ -12,6 +34,32 @@ formal modelling, discrete mathematics, and visual intuition.
 </p>
 
 <hr>
+
+<h2>Fibonacci Recurrence and an Emergent Fractal-Like Figure</h2>
+
+<figure class="vs-figure">
+  <img
+    src="{{ '/images/papers/Fibo02.png' | relative_url }}"
+    alt="Emergent geometric pattern obtained from a Petri-net construction for the Fibonacci recurrence (Mailland & Grobelna)."
+    loading="lazy"
+  >
+  <figcaption>
+    Emergent figure obtained by extending our Petri-net construction from Pascal’s triangle to the Fibonacci recurrence.
+    To the best of our knowledge, this specific visual structure has not been formally documented before.
+  </figcaption>
+</figure>
+
+<p>
+Starting from the Petri-net viewpoint developed for Pascal’s triangle,
+we apply an analogous local construction to the Fibonacci recurrence.
+The resulting parity-driven geometry produces a striking, fractal-like pattern.
+</p>
+
+<p>
+To the best of our knowledge, this particular emergent figure has not been previously studied in the literature
+in this form, and it illustrates how simple firing rules can generate unexpected large-scale organisation.
+</p>
+
 
 <h2>Pascal’s Triangle as a Petri Net</h2>
 
@@ -22,8 +70,7 @@ formal modelling, discrete mathematics, and visual intuition.
     loading="lazy"
   >
   <figcaption>
-    Pascal’s triangle represented as a Petri net.
-    From Mailland &amp; Grobelna (2025).
+    Pascal’s triangle represented as a Petri net. From Mailland &amp; Grobelna (2025).
   </figcaption>
 </figure>
 
@@ -41,7 +88,11 @@ of the Petri net.
 
 <hr>
 
-<h2>Related publication</h2>
+
+
+<hr>
+
+<h2>Related publications</h2>
 
 <p>
 Mailland, D.; Grobelna, I. (2025).
@@ -50,5 +101,15 @@ Symmetry, 17(12), 2181.
 DOI:
 <a href="https://doi.org/10.3390/sym17122181" target="_blank" rel="noopener">
 10.3390/sym17122181
+</a>
+</p>
+
+<p>
+Mailland, D.; Grobelna, I. (Year).
+<em>From Mathematics to Art: Modelling the Fibonacci Sequence with Petri Nets</em>.
+Fractal and Fractional, 10(1), 53.
+Available at:
+<a href="https://www.mdpi.com/2504-3110/10/1/53" target="_blank" rel="noopener">
+https://www.mdpi.com/2504-3110/10/1/53
 </a>
 </p>
