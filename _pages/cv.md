@@ -3,11 +3,12 @@ layout: single
 title: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
+classes: cv-page
 ---
 ### David Mailland
 
 Independent researcher  
-Mathematics, reliability, discrete and formal models
+Mathematics, Safety & Reliability, Discrete and Formal models
 
 ---
 
@@ -26,7 +27,7 @@ Risk analysis, dependability studies, and system-level safety assessments for op
 *University of Toulouse III – Paul Sabatier (UPSSITECH engineering school)*  
 2007–2021, Toulouse, France
 
-Teaching applied mathematics and systems modelling for engineering students, with a focus on reliability and safety-related methods.
+Teaching applied mathematics and systems modelling for engineering students, with a focus on Reliability and Safety-related methods.
 
 ---
 
