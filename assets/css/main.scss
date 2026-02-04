@@ -84,8 +84,12 @@ html { filter: none; }
 
 .page__content h3 {
   color: #ffffff;
-  font-weight: 600;
-  line-height: 1.35;
-  margin-top: 1.5rem;
+  font-weight: 750;
+  font-size: 1.25rem;      /* rend le ### vraiment visible */
+  line-height: 1.25;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  opacity: 1;
 }
+
 
