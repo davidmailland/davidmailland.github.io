@@ -1,13 +1,10 @@
 ---
-
 permalink: /
 title: "Petri Nets and Mathematical Structures"
 author_profile: true
 redirect_from:
-
-* /about/
-* /about.html
-
+  - /about/
+  - /about.html
 ---
 
 # David Mailland
