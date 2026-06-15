@@ -2,10 +2,17 @@
 permalink: /
 title: "Mathematics and Art"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
-A personal exploration of mathematical structures, visual forms, and the quiet places where they unexpectedly meet.
 
-This site brings together notes, figures, and publications arising from these mathematical explorations.
+# David Mailland
+
+Independent researcher in Petri nets, formal methods, safety engineering and mathematical structures.
+
+## Mathematics and Art
+
+A personal exploration of mathematical structures, visual forms, and the unexpected patterns that emerge from them.
+
+This site brings together notes, figures, software, and publications arising from these mathematical and scientific explorations.
