@@ -12,7 +12,7 @@ site_theme               : "default"   # "default", "air", "sunrise", "mint", "d
 title                    : "David Mailland"
 title_separator          : "-"
 name                     : &name "David Mailland"
-description              : &description "Independent researcher in Petri nets, formal methods, safety engineering and mathematical structures."
+description              : &description "Independent researcher working on Petri nets, reliability engineering, formal methods and discrete mathematical structures."
 baseurl                  : ""
 repository               : "davidmailland/davidmailland.github.io"
 
@@ -23,7 +23,7 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "David Mailland"
-  bio              : "Independent Researcher"
+  bio              : "Petri Nets · Reliability Engineering · Discrete Mathematics"
   education        : "ISAE (ENSICA)"
   uri              : # URL
   email            : "david.mailland@protonmail.com" 
@@ -38,7 +38,7 @@ author:
   semantic         : # URL
   ssrn             : # URL
   pubmed           : # URL
-  researchgate     : # URL
+  researchgate     : "https://www.researchgate.net/profile/David-Mailland"
   scopus           : # URL
   zotero           : # URL
 
@@ -150,7 +150,7 @@ social:
     - https://github.com/davidmailland
     - https://scholar.google.com/citations?user=fOZYuXQAAAAJ
     - https://orcid.org/0009-0002-8480-1325
-
+    - https://www.researchgate.net/profile/David-Mailland
 
 # Analytics
 analytics:
