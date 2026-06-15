@@ -1,18 +1,37 @@
 ---
+
 permalink: /
-title: "Mathematics and Art"
+title: "Petri Nets and Mathematical Structures"
 author_profile: true
 redirect_from:
-  - /about/
-  - /about.html
+
+* /about/
+* /about.html
+
 ---
 
 # David Mailland
 
-Independent researcher in Petri nets, formal methods, safety engineering and mathematical structures.
+Independent researcher in Petri nets, reliability engineering, formal methods and discrete mathematical structures.
 
-## Mathematics and Art
+## Research Interests
 
-A personal exploration of mathematical structures, visual forms, and the unexpected patterns that emerge from them.
+My research focuses on the modelling of complex systems through Petri nets, reliability methods and discrete mathematics. Applications range from aerospace safety assessment and formal verification to recurrence relations, integer sequences and mathematical structures.
 
-This site brings together notes, figures, software, and publications arising from these mathematical and scientific explorations.
+This website gathers publications, software, visualisations and research notes related to these topics.
+
+## Main Research Areas
+
+* Petri Nets
+* Reliability Engineering
+* Formal Methods
+* Discrete Mathematics
+* Aerospace Systems
+
+## Selected Topics
+
+* Petri Net Modelling of the Collatz Conjecture
+* Jacobsthal Trees and Generalized Transformations
+* Fibonacci, Tribonacci and k-Bonacci Petri Net Structures
+* Model-Based Safety Assessment (MBSA)
+* Reliability Analysis of Aerospace Systems
