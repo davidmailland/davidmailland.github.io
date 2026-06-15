@@ -12,7 +12,7 @@ site_theme               : "default"   # "default", "air", "sunrise", "mint", "d
 title                    : "David Mailland"
 title_separator          : "-"
 name                     : &name "David Mailland"
-description              : &description "Petri nets for Humans"
+description              : &description "Independent researcher in Petri nets, formal methods, safety engineering and mathematical structures."
 baseurl                  : ""
 repository               : "davidmailland/davidmailland.github.io"
 
@@ -23,9 +23,7 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "David Mailland"
-  pronouns         : # example: "she/her"  
   bio              : "Independent Researcher"
-  location         : "French"
   education        : "ISAE (ENSICA)"
   uri              : # URL
   email            : "david.mailland@protonmail.com" 
@@ -49,7 +47,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : # Username
+  github           : "davidmailland"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -146,9 +144,12 @@ og_description           :  # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : Person
+  name                   : David Mailland
+  links:
+    - https://github.com/davidmailland
+    - https://scholar.google.com/citations?user=fOZYuXQAAAAJ
+    - https://orcid.org/0009-0002-8480-1325
 
 
 # Analytics
